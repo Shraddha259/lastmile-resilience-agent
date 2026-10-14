@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(make help)",
+      "Bash(make lint)",
+      "Bash(make test)",
+      "Bash(make test-unit)",
+      "Bash(make test-scenario)",
+      "Bash(make types)",
+      "Bash(make check-types)",
+      "Bash(uv run pytest:*)",
+      "Bash(uv run ruff check:*)",
+      "Bash(uv run ruff format --check:*)",
+      "Bash(npm run lint)",
+      "Bash(npm run build)",
+      "Bash(npm test)",
+      "Bash(npm run format:check)",
+      "Bash(npx vitest run:*)",
+      "Bash(npx tsc -b:*)",
+      "Bash(gitleaks:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)"
+    ],
+    "ask": [
+      "Bash(./infra/deploy.sh:*)",
+      "Bash(npx firebase deploy:*)",
+      "Bash(gcloud:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./**/.env)",
+      "Read(./**/.env.*)",
+      "Read(./**/secrets/**)",
+      "Read(./**/*.pem)",
+      "Read(./**/*.key)",
+      "Read(./**/service-account*.json)",
+      "Edit(./.env)",
+      "Edit(./**/.env)",
+      "Edit(./**/.env.*)"
+    ]
+  }
+}
