@@ -1,0 +1,30 @@
+# Install once: `uv tool install pre-commit && pre-commit install`
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.0  # matches backend ruff; `pre-commit autoupdate` to bump
+    hooks:
+      - id: ruff
+        args: [--fix]
+        files: ^backend/
+      - id: ruff-format
+        files: ^backend/
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb=1024]
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: no-env-files
+        name: Block .env files (NFR-S1)
+        entry: .env files must not be committed; use .env.example
+        language: fail
+        files: (^|/)\.env(\..*)?$
+        exclude: \.env\.example$

@@ -1,0 +1,4 @@
+docs/PRD.md
+frontend/src/types.gen.ts
+frontend/dist
+node_modules

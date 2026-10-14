@@ -1,0 +1,26 @@
+rules_version = '2';
+// NFR-S5: authenticated clients may read incident data and seeded reference data.
+// All client writes are denied; the backend writes with the Admin SDK.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /incidents/{document=**} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+    match /residents/{id} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+    match /shelters/{id} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+    match /volunteers/{id} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

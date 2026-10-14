@@ -1,0 +1,41 @@
+[
+  {
+    "shelter_id": "S-1",
+    "name": "SK Sungai Indah Hall (fictional)",
+    "location": {
+      "lat": 3.0602,
+      "lng": 101.515
+    },
+    "capacity": 30,
+    "occupied": 0,
+    "wheelchair_accessible": true,
+    "medical_support": false,
+    "open": true
+  },
+  {
+    "shelter_id": "S-2",
+    "name": "Dewan Komuniti Taman Indah (fictional)",
+    "location": {
+      "lat": 3.0598,
+      "lng": 101.5035
+    },
+    "capacity": 20,
+    "occupied": 0,
+    "wheelchair_accessible": false,
+    "medical_support": false,
+    "open": true
+  },
+  {
+    "shelter_id": "S-3",
+    "name": "Civic Care Centre (fictional)",
+    "location": {
+      "lat": 3.0632,
+      "lng": 101.5205
+    },
+    "capacity": 10,
+    "occupied": 0,
+    "wheelchair_accessible": true,
+    "medical_support": true,
+    "open": true
+  }
+]

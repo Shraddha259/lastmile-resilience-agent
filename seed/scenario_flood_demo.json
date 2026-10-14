@@ -1,0 +1,60 @@
+{
+  "scenario_id": "flood_demo",
+  "type": "FLOOD",
+  "severity": "SEVERE",
+  "title": "Flash flood warning — Sungai Indah (fictional)",
+  "polygon": {
+    "type": "Polygon",
+    "points": [
+      {
+        "lat": 3.048,
+        "lng": 101.5
+      },
+      {
+        "lat": 3.048,
+        "lng": 101.522
+      },
+      {
+        "lat": 3.062,
+        "lng": 101.522
+      },
+      {
+        "lat": 3.062,
+        "lng": 101.5
+      },
+      {
+        "lat": 3.048,
+        "lng": 101.5
+      }
+    ]
+  },
+  "river_line": {
+    "type": "LineString",
+    "points": [
+      {
+        "lat": 3.05,
+        "lng": 101.498
+      },
+      {
+        "lat": 3.058,
+        "lng": 101.525
+      }
+    ]
+  },
+  "official_text": {
+    "en": "Flash flood warning for Sungai Indah. Water may rise 0.5 to 1 metre by 6 pm. Shelters S-1, S-2 and S-3 are open. Do not walk through moving water. Bring your ID, phone and medicines.",
+    "zh": "双溪英达山洪警报。下午6点前水位可能上涨0.5至1米。S-1、S-2和S-3避难所已开放。请勿涉过流动的水。请携带身份证、手机和药物。",
+    "ms": "Amaran banjir kilat untuk Sungai Indah. Air mungkin naik 0.5 hingga 1 meter menjelang 6 petang. Pusat pemindahan S-1, S-2 dan S-3 dibuka. Jangan berjalan dalam air yang mengalir. Bawa kad pengenalan, telefon dan ubat-ubatan.",
+    "ta": "சுங்கை இண்டாவுக்கு திடீர் வெள்ள எச்சரிக்கை. மாலை 6 மணிக்குள் நீர் 0.5 முதல் 1 மீட்டர் வரை உயரலாம். S-1, S-2, S-3 தங்குமிடங்கள் திறந்துள்ளன. ஓடும் நீரில் நடக்க வேண்டாம். அடையாள அட்டை, தொலைபேசி, மருந்துகளை எடுத்துச் செல்லுங்கள்.",
+    "yue": "雙溪英達山洪警告。下晝6點前水位可能上升0.5至1米。S-1、S-2同S-3避難中心已經開放。唔好行過流動嘅水。記得帶身份證、電話同藥物。"
+  },
+  "official_text_machine_translated": true,
+  "official_facts": [
+    "Water is expected to rise 0.5 to 1 metre by 18:00.",
+    "Shelters are open: S-1 SK Sungai Indah Hall, S-2 Dewan Komuniti Taman Indah, S-3 Civic Care Centre.",
+    "Do not walk or drive through moving water.",
+    "Bring your ID, phone and medicines if you leave home.",
+    "Turn off the electricity if water enters your home."
+  ],
+  "map_label": "Illustrative scenario"
+}
