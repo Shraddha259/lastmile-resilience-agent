@@ -27,4 +27,8 @@ emulator-data/
 .idea/
 .vscode/*
 !.vscode/extensions.json
-.claude/
+
+# Claude Code: personal settings and scratch notes stay local
+.claude/settings.local.json
+.claude/scratch/*
+!.claude/scratch/README.md
