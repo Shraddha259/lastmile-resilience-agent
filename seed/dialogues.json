@@ -1,0 +1,1942 @@
+{
+  "R-003": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mrs Grace Thomas, I am an automated assistant from the community flood response, speaking English. There is a flash flood warning for your area.",
+        "text_en": "Hello Mrs Grace Thomas, I am an automated assistant from the community flood response, speaking English. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, ground floor, with adult son. Water is starting to come in the door.",
+        "text_en": "I am at home, ground floor, with adult son. Water is starting to come in the door."
+      },
+      {
+        "role": "agent",
+        "text": "Can you leave home on your own?",
+        "text_en": "Can you leave home on your own?"
+      },
+      {
+        "role": "resident",
+        "text": "Not easily, I uses a wheelchair. Please send someone.",
+        "text_en": "Not easily, I uses a wheelchair. Please send someone."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "NEEDS_EVACUATION",
+    "classification": {
+      "status": "NEEDS_EVACUATION",
+      "confidence": 0.92,
+      "needs": [
+        "wheelchair"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "en",
+      "summary_en": "Ground floor, water entering; uses a wheelchair; needs escort to shelter.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-004": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mr Ganesan Rajoo, I am an automated assistant from the community flood response, speaking Tamil. There is a flash flood warning for your area.",
+        "text_en": "Hello Mr Ganesan Rajoo, I am an automated assistant from the community flood response, speaking Tamil. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, ground floor, alone. Water is starting to come in the door.",
+        "text_en": "I am at home, ground floor, alone. Water is starting to come in the door."
+      },
+      {
+        "role": "agent",
+        "text": "Can you leave home on your own?",
+        "text_en": "Can you leave home on your own?"
+      },
+      {
+        "role": "resident",
+        "text": "Not easily, I uses a wheelchair. Please send someone.",
+        "text_en": "Not easily, I uses a wheelchair. Please send someone."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "NEEDS_EVACUATION",
+    "classification": {
+      "status": "NEEDS_EVACUATION",
+      "confidence": 0.92,
+      "needs": [
+        "wheelchair"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "ta",
+      "summary_en": "Ground floor, water entering; uses a wheelchair; needs escort to shelter.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-005": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mr Goh Ah Kow, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area.",
+        "text_en": "Hello Mr Goh Ah Kow, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, ground floor, alone. Water is starting to come in the door.",
+        "text_en": "I am at home, ground floor, alone. Water is starting to come in the door."
+      },
+      {
+        "role": "agent",
+        "text": "Can you leave home on your own?",
+        "text_en": "Can you leave home on your own?"
+      },
+      {
+        "role": "resident",
+        "text": "Not easily, I walks fine. Please send someone.",
+        "text_en": "Not easily, I walks fine. Please send someone."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "NEEDS_EVACUATION",
+    "classification": {
+      "status": "NEEDS_EVACUATION",
+      "confidence": 0.92,
+      "needs": [
+        "oxygen"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "zh",
+      "summary_en": "Ground floor, water entering; walks fine; needs escort to shelter.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-006": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mdm Kamala Devi, I am an automated assistant from the community flood response, speaking Tamil. There is a flash flood warning for your area.",
+        "text_en": "Hello Mdm Kamala Devi, I am an automated assistant from the community flood response, speaking Tamil. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, ground floor, with daughter. Water is starting to come in the door.",
+        "text_en": "I am at home, ground floor, with daughter. Water is starting to come in the door."
+      },
+      {
+        "role": "agent",
+        "text": "Can you leave home on your own?",
+        "text_en": "Can you leave home on your own?"
+      },
+      {
+        "role": "resident",
+        "text": "Not easily, I uses a walker, knees are bad. Please send someone.",
+        "text_en": "Not easily, I uses a walker, knees are bad. Please send someone."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "NEEDS_EVACUATION",
+    "classification": {
+      "status": "NEEDS_EVACUATION",
+      "confidence": 0.92,
+      "needs": [
+        "walking_aid",
+        "dialysis"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "ta",
+      "summary_en": "Ground floor, water entering; uses a walker, knees are bad; needs escort to shelter.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-007": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello En Ahmad Zaki, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area.",
+        "text_en": "Hello En Ahmad Zaki, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, ground floor, alone. Water is starting to come in the door; worried about her cat.",
+        "text_en": "I am at home, ground floor, alone. Water is starting to come in the door; worried about her cat."
+      },
+      {
+        "role": "agent",
+        "text": "Can you leave home on your own?",
+        "text_en": "Can you leave home on your own?"
+      },
+      {
+        "role": "resident",
+        "text": "Not easily, I uses a walker, knees are bad. Please send someone.",
+        "text_en": "Not easily, I uses a walker, knees are bad. Please send someone."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "NEEDS_EVACUATION",
+    "classification": {
+      "status": "NEEDS_EVACUATION",
+      "confidence": 0.92,
+      "needs": [
+        "walking_aid",
+        "pet"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "ms",
+      "summary_en": "Ground floor, water entering; uses a walker, knees are bad; needs escort to shelter.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-008": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mr Cheung Kwok Keung, I am an automated assistant from the community flood response, speaking Cantonese. There is a flash flood warning for your area.",
+        "text_en": "Hello Mr Cheung Kwok Keung, I am an automated assistant from the community flood response, speaking Cantonese. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, ground floor, with spouse. Water is starting to come in the door.",
+        "text_en": "I am at home, ground floor, with spouse. Water is starting to come in the door."
+      },
+      {
+        "role": "agent",
+        "text": "Can you leave home on your own?",
+        "text_en": "Can you leave home on your own?"
+      },
+      {
+        "role": "resident",
+        "text": "Not easily, I walks fine. Please send someone.",
+        "text_en": "Not easily, I walks fine. Please send someone."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "NEEDS_EVACUATION",
+    "classification": {
+      "status": "NEEDS_EVACUATION",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "yue",
+      "summary_en": "Ground floor, water entering; walks fine; needs escort to shelter.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-009": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Pn Rohani Ismail, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area.",
+        "text_en": "Hello Pn Rohani Ismail, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "We can stay, the water is low. But I needs help moving belongings and rice upstairs.",
+        "text_en": "We can stay, the water is low. But I needs help moving belongings and rice upstairs."
+      },
+      {
+        "role": "agent",
+        "text": "Are you hurt or do you need medicine?",
+        "text_en": "Are you hurt or do you need medicine?"
+      },
+      {
+        "role": "resident",
+        "text": "No, nobody is hurt. Just need some hands.",
+        "text_en": "No, nobody is hurt. Just need some hands."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "NEEDS_HELP",
+    "classification": {
+      "status": "NEEDS_HELP",
+      "confidence": 0.92,
+      "needs": [
+        "walking_aid"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "ms",
+      "summary_en": "Can stay home but needs practical help moving belongings upstairs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-010": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello En Hashim Omar, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area.",
+        "text_en": "Hello En Hashim Omar, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "We can stay, the water is low. But I needs help moving belongings and rice upstairs.",
+        "text_en": "We can stay, the water is low. But I needs help moving belongings and rice upstairs."
+      },
+      {
+        "role": "agent",
+        "text": "Are you hurt or do you need medicine?",
+        "text_en": "Are you hurt or do you need medicine?"
+      },
+      {
+        "role": "resident",
+        "text": "No, nobody is hurt. Just need some hands.",
+        "text_en": "No, nobody is hurt. Just need some hands."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "NEEDS_HELP",
+    "classification": {
+      "status": "NEEDS_HELP",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "ms",
+      "summary_en": "Can stay home but needs practical help moving belongings upstairs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-011": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mr Chua Kim Seng, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area.",
+        "text_en": "Hello Mr Chua Kim Seng, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home. My chest feels tight since this morning.",
+        "text_en": "I am at home. My chest feels tight since this morning."
+      },
+      {
+        "role": "agent",
+        "text": "I am connecting you to a person who can help right away.",
+        "text_en": "I am connecting you to a person who can help right away."
+      },
+      {
+        "role": "resident",
+        "text": "Okay. Please hurry.",
+        "text_en": "Okay. Please hurry."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "MEDICAL",
+    "classification": {
+      "status": "MEDICAL",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": true,
+      "location_now": "upper_floor",
+      "language_detected": "zh",
+      "summary_en": "Resident reports chest tightness since morning; lives alone.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-012": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mdm Ong Gek Lan, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area.",
+        "text_en": "Hello Mdm Ong Gek Lan, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I'm okay but my husband fell in the kitchen. He can't get up.",
+        "text_en": "I'm okay but my husband fell in the kitchen. He can't get up."
+      },
+      {
+        "role": "agent",
+        "text": "I am connecting you to a person who can help right away.",
+        "text_en": "I am connecting you to a person who can help right away."
+      },
+      {
+        "role": "resident",
+        "text": "Thank you, please come quickly.",
+        "text_en": "Thank you, please come quickly."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "MEDICAL",
+    "classification": {
+      "status": "MEDICAL",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": true,
+      "medical_flag": true,
+      "location_now": "upper_floor",
+      "language_detected": "zh",
+      "summary_en": "Resident fine but husband fell and cannot get up; household medical.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-013": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mr Peter Gomez, I am an automated assistant from the community flood response, speaking English. There is a flash flood warning for your area.",
+        "text_en": "Hello Mr Peter Gomez, I am an automated assistant from the community flood response, speaking English. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am fine, fine. The water... is it in the house? Maybe.",
+        "text_en": "I am fine, fine. The water... is it in the house? Maybe."
+      },
+      {
+        "role": "agent",
+        "text": "Is water inside your home now?",
+        "text_en": "Is water inside your home now?"
+      },
+      {
+        "role": "resident",
+        "text": "No. Yes. I don't know, my son usually handles this.",
+        "text_en": "No. Yes. I don't know, my son usually handles this."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.55,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "en",
+      "summary_en": "Says safe but contradicts herself about water in the home; seems confused.",
+      "requires_human_review": true,
+      "review_reason": "Contradictory answers, possible confusion"
+    }
+  },
+  "R-014": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello En Kamal Idris, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area.",
+        "text_en": "Hello En Kamal Idris, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 3, with adult son. Water is not near us.",
+        "text_en": "I am at home, floor 3, with adult son. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "ms",
+      "summary_en": "Safe at home, floor 3 with adult son; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-015": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mdm Lau Yuk Ying, I am an automated assistant from the community flood response, speaking Cantonese. There is a flash flood warning for your area.",
+        "text_en": "Hello Mdm Lau Yuk Ying, I am an automated assistant from the community flood response, speaking Cantonese. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, ground floor, with spouse. Water is starting to come in the door.",
+        "text_en": "I am at home, ground floor, with spouse. Water is starting to come in the door."
+      },
+      {
+        "role": "agent",
+        "text": "Can you leave home on your own?",
+        "text_en": "Can you leave home on your own?"
+      },
+      {
+        "role": "resident",
+        "text": "Not easily, I uses a walker, knees are bad. Please send someone.",
+        "text_en": "Not easily, I uses a walker, knees are bad. Please send someone."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "NEEDS_EVACUATION",
+    "classification": {
+      "status": "NEEDS_EVACUATION",
+      "confidence": 0.92,
+      "needs": [
+        "walking_aid"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "yue",
+      "summary_en": "Ground floor, water entering; uses a walker, knees are bad; needs escort to shelter.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-018": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello En Ismail Bakar, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area.",
+        "text_en": "Hello En Ismail Bakar, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 4, with adult son. Water is not near us.",
+        "text_en": "I am at home, floor 4, with adult son. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [
+        "wheelchair"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "ms",
+      "summary_en": "Safe at home, floor 4 with adult son; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-019": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mdm Leung Siu Wah, I am an automated assistant from the community flood response, speaking Cantonese. There is a flash flood warning for your area.",
+        "text_en": "Hello Mdm Leung Siu Wah, I am an automated assistant from the community flood response, speaking Cantonese. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 5, with spouse. Water is not near us.",
+        "text_en": "I am at home, floor 5, with spouse. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [
+        "wheelchair"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "yue",
+      "summary_en": "Safe at home, floor 5 with spouse; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-020": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mdm Ng Bee Choo, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area.",
+        "text_en": "Hello Mdm Ng Bee Choo, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 6, with daughter. Water is not near us.",
+        "text_en": "I am at home, floor 6, with daughter. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [
+        "wheelchair"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "zh",
+      "summary_en": "Safe at home, floor 6 with daughter; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-021": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mr Joseph Fernandez, I am an automated assistant from the community flood response, speaking English. There is a flash flood warning for your area.",
+        "text_en": "Hello Mr Joseph Fernandez, I am an automated assistant from the community flood response, speaking English. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 3, with daughter. Water is not near us.",
+        "text_en": "I am at home, floor 3, with daughter. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [
+        "walking_aid"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "en",
+      "summary_en": "Safe at home, floor 3 with daughter; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-022": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Pn Mariam Salleh, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area.",
+        "text_en": "Hello Pn Mariam Salleh, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 2, with spouse. Water is not near us.",
+        "text_en": "I am at home, floor 2, with spouse. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [
+        "walking_aid"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "ms",
+      "summary_en": "Safe at home, floor 2 with spouse; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-023": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mrs Mary D'Cruz, I am an automated assistant from the community flood response, speaking English. There is a flash flood warning for your area.",
+        "text_en": "Hello Mrs Mary D'Cruz, I am an automated assistant from the community flood response, speaking English. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 1, alone. Water is not near us.",
+        "text_en": "I am at home, floor 1, alone. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [
+        "walking_aid"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "en",
+      "summary_en": "Safe at home, floor 1 alone; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-024": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mr Koh Ah Huat, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area.",
+        "text_en": "Hello Mr Koh Ah Huat, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, ground floor, with spouse. Water is not near us.",
+        "text_en": "I am at home, ground floor, with spouse. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "zh",
+      "summary_en": "Safe at home, ground floor with spouse; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-025": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mdm Lakshmi Raman, I am an automated assistant from the community flood response, speaking Tamil. There is a flash flood warning for your area.",
+        "text_en": "Hello Mdm Lakshmi Raman, I am an automated assistant from the community flood response, speaking Tamil. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, ground floor, with adult son. Water is not near us.",
+        "text_en": "I am at home, ground floor, with adult son. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "ta",
+      "summary_en": "Safe at home, ground floor with adult son; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-026": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mr Teo Chin Hock, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area.",
+        "text_en": "Hello Mr Teo Chin Hock, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, ground floor, with daughter. Water is not near us.",
+        "text_en": "I am at home, ground floor, with daughter. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "zh",
+      "summary_en": "Safe at home, ground floor with daughter; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-027": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mr Foo Chee Keong, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area.",
+        "text_en": "Hello Mr Foo Chee Keong, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, ground floor, with spouse. Water is not near us.",
+        "text_en": "I am at home, ground floor, with spouse. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "zh",
+      "summary_en": "Safe at home, ground floor with spouse; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-028": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mdm Lee Siew Hoon, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area.",
+        "text_en": "Hello Mdm Lee Siew Hoon, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, ground floor, alone. Water is not near us.",
+        "text_en": "I am at home, ground floor, alone. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "zh",
+      "summary_en": "Safe at home, ground floor alone; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-029": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mrs Rita Pereira, I am an automated assistant from the community flood response, speaking English. There is a flash flood warning for your area.",
+        "text_en": "Hello Mrs Rita Pereira, I am an automated assistant from the community flood response, speaking English. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 1, with adult son. Water is not near us.",
+        "text_en": "I am at home, floor 1, with adult son. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "en",
+      "summary_en": "Safe at home, floor 1 with adult son; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-030": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mr Subramaniam Pillai, I am an automated assistant from the community flood response, speaking Tamil. There is a flash flood warning for your area.",
+        "text_en": "Hello Mr Subramaniam Pillai, I am an automated assistant from the community flood response, speaking Tamil. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 1, with adult son. Water is not near us.",
+        "text_en": "I am at home, floor 1, with adult son. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "ta",
+      "summary_en": "Safe at home, floor 1 with adult son; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-031": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mdm Yap Swee Lian, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area.",
+        "text_en": "Hello Mdm Yap Swee Lian, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 1, with spouse. Water is not near us.",
+        "text_en": "I am at home, floor 1, with spouse. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "zh",
+      "summary_en": "Safe at home, floor 1 with spouse; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-032": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mdm Sim Ah Moi, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area.",
+        "text_en": "Hello Mdm Sim Ah Moi, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 1, alone. Water is not near us.",
+        "text_en": "I am at home, floor 1, alone. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "zh",
+      "summary_en": "Safe at home, floor 1 alone; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-033": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mr Low Teck Meng, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area.",
+        "text_en": "Hello Mr Low Teck Meng, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 2, with spouse. Water is not near us.",
+        "text_en": "I am at home, floor 2, with spouse. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "zh",
+      "summary_en": "Safe at home, floor 2 with spouse; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-034": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Pn Fatimah Yusof, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area.",
+        "text_en": "Hello Pn Fatimah Yusof, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 3, with spouse. Water is not near us.",
+        "text_en": "I am at home, floor 3, with spouse. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [
+        "slow_clear_speech"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "ms",
+      "summary_en": "Safe at home, floor 3 with spouse; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-035": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mdm Parvathi Nair, I am an automated assistant from the community flood response, speaking Tamil. There is a flash flood warning for your area.",
+        "text_en": "Hello Mdm Parvathi Nair, I am an automated assistant from the community flood response, speaking Tamil. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 4, with daughter. Water is not near us.",
+        "text_en": "I am at home, floor 4, with daughter. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [
+        "slow_clear_speech"
+      ],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "ta",
+      "summary_en": "Safe at home, floor 4 with daughter; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-036": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mdm Toh Geok Eng, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area.",
+        "text_en": "Hello Mdm Toh Geok Eng, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 5, with adult son. Water is not near us.",
+        "text_en": "I am at home, floor 5, with adult son. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "zh",
+      "summary_en": "Safe at home, floor 5 with adult son; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-037": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mdm Wong Mei Ling, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area.",
+        "text_en": "Hello Mdm Wong Mei Ling, I am an automated assistant from the community flood response, speaking Mandarin. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 6, with adult son. Water is not near us.",
+        "text_en": "I am at home, floor 6, with adult son. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "zh",
+      "summary_en": "Safe at home, floor 6 with adult son; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-038": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Pn Siti Aminah, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area.",
+        "text_en": "Hello Pn Siti Aminah, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 8, with daughter. Water is not near us.",
+        "text_en": "I am at home, floor 8, with daughter. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "ms",
+      "summary_en": "Safe at home, floor 8 with daughter; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-039": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Mr Muthu Krishnan, I am an automated assistant from the community flood response, speaking Tamil. There is a flash flood warning for your area.",
+        "text_en": "Hello Mr Muthu Krishnan, I am an automated assistant from the community flood response, speaking Tamil. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, floor 10, with adult son. Water is not near us.",
+        "text_en": "I am at home, floor 10, with adult son. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "upper_floor",
+      "language_detected": "ta",
+      "summary_en": "Safe at home, floor 10 with adult son; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  },
+  "R-040": {
+    "source": "template",
+    "lines": [
+      {
+        "role": "agent",
+        "text": "Hello Pn Zainab Hassan, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area.",
+        "text_en": "Hello Pn Zainab Hassan, I am an automated assistant from the community flood response, speaking Malay. There is a flash flood warning for your area."
+      },
+      {
+        "role": "resident",
+        "text": "Oh. Yes, I heard something on the TV.",
+        "text_en": "Oh. Yes, I heard something on the TV."
+      },
+      {
+        "role": "agent",
+        "text": "Are you safe right now, and where are you?",
+        "text_en": "Are you safe right now, and where are you?"
+      },
+      {
+        "role": "resident",
+        "text": "I am at home, ground floor, with daughter. Water is not near us.",
+        "text_en": "I am at home, ground floor, with daughter. Water is not near us."
+      },
+      {
+        "role": "agent",
+        "text": "Do you need medicine, care, or help leaving?",
+        "text_en": "Do you need medicine, care, or help leaving?"
+      },
+      {
+        "role": "resident",
+        "text": "No, we are fine. We have food and medicine.",
+        "text_en": "No, we are fine. We have food and medicine."
+      },
+      {
+        "role": "agent",
+        "text": "Thank you. Please stay safe. Goodbye.",
+        "text_en": "Thank you. Please stay safe. Goodbye."
+      }
+    ],
+    "live_status": "SAFE_IN_PLACE",
+    "classification": {
+      "status": "SAFE_IN_PLACE",
+      "confidence": 0.92,
+      "needs": [],
+      "household_others_at_risk": false,
+      "medical_flag": false,
+      "location_now": "home",
+      "language_detected": "ms",
+      "summary_en": "Safe at home, ground floor with daughter; no urgent needs.",
+      "requires_human_review": false,
+      "review_reason": null
+    }
+  }
+}

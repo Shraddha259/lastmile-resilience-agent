@@ -1,0 +1,5 @@
+# Replace the placeholders with your team's GitHub handles before enabling branch protection.
+# backend/            @backend-owner
+# frontend/           @frontend-owner
+# backend/app/policy/ @backend-owner   # state machine + fallback: review carefully (FR-1..FR-4, FR-13)
+# infra/              @infra-owner

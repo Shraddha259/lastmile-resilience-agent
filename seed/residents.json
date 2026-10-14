@@ -1,0 +1,1656 @@
+[
+  {
+    "resident_id": "R-001",
+    "display_name": "Mdm Tan Ah Lian",
+    "synthetic": true,
+    "age": 82,
+    "gender": "F",
+    "languages": [
+      "zh"
+    ],
+    "dialect_hint": "Hokkien",
+    "preferred_language": "zh",
+    "location": {
+      "lat": 3.0541,
+      "lng": 101.5102
+    },
+    "address_label": "Blk 12, Jalan Sungai 3 (fictional)",
+    "floor": 0,
+    "lives_alone": true,
+    "mobility": "walker",
+    "medical_flags": [
+      "hypertension"
+    ],
+    "next_of_kin": {
+      "name": "Tan Wei Ming",
+      "relation": "son",
+      "phone_masked": "+60 1X-XXX 4821"
+    },
+    "is_live_demo": true,
+    "persona": null
+  },
+  {
+    "resident_id": "R-002",
+    "display_name": "Mr Lim Boon Huat",
+    "synthetic": true,
+    "age": 76,
+    "gender": "M",
+    "languages": [
+      "en",
+      "zh"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "en",
+    "location": {
+      "lat": 3.0566,
+      "lng": 101.5138
+    },
+    "address_label": "No. 8, Lorong Indah 2 (fictional)",
+    "floor": 1,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [
+      "diabetes"
+    ],
+    "next_of_kin": {
+      "name": "Lim Hui Min",
+      "relation": "daughter",
+      "phone_masked": "+60 1X-XXX 1937"
+    },
+    "is_live_demo": true,
+    "persona": null
+  },
+  {
+    "resident_id": "R-003",
+    "display_name": "Mrs Grace Thomas",
+    "synthetic": true,
+    "age": 74,
+    "gender": "F",
+    "languages": [
+      "en"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "en",
+    "location": {
+      "lat": 3.05234,
+      "lng": 101.51217
+    },
+    "address_label": "No. 34, Jalan Bakti 7 (fictional)",
+    "floor": 0,
+    "lives_alone": false,
+    "mobility": "wheelchair",
+    "medical_flags": [
+      "dementia"
+    ],
+    "next_of_kin": {
+      "name": "Grace Mei",
+      "relation": "niece",
+      "phone_masked": "+60 1X-XXX 7543"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "NEEDS_EVACUATION",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "with adult son",
+        "mobility_detail": "uses a wheelchair",
+        "medical": "no major issues",
+        "extra": "water is starting to come in the door"
+      },
+      "speech_style": "chatty, a little anxious",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-004",
+    "display_name": "Mr Ganesan Rajoo",
+    "synthetic": true,
+    "age": 46,
+    "gender": "M",
+    "languages": [
+      "ta"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ta",
+    "location": {
+      "lat": 3.05819,
+      "lng": 101.51786
+    },
+    "address_label": "No. 20, Lorong Indah 7 (fictional)",
+    "floor": 0,
+    "lives_alone": true,
+    "mobility": "wheelchair",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Ganesan Mei",
+      "relation": "daughter",
+      "phone_masked": "+60 1X-XXX 2040"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "NEEDS_EVACUATION",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "alone",
+        "mobility_detail": "uses a wheelchair",
+        "medical": "no major issues",
+        "extra": "water is starting to come in the door"
+      },
+      "speech_style": "slow, repeats themselves",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-005",
+    "display_name": "Mr Goh Ah Kow",
+    "synthetic": true,
+    "age": 89,
+    "gender": "M",
+    "languages": [
+      "zh"
+    ],
+    "dialect_hint": "Hokkien",
+    "preferred_language": "zh",
+    "location": {
+      "lat": 3.05239,
+      "lng": 101.51201
+    },
+    "address_label": "No. 2, Jalan Sungai 9 (fictional)",
+    "floor": 0,
+    "lives_alone": true,
+    "mobility": "independent",
+    "medical_flags": [
+      "oxygen"
+    ],
+    "next_of_kin": {
+      "name": "Goh Ravi",
+      "relation": "niece",
+      "phone_masked": "+60 1X-XXX 6573"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "NEEDS_EVACUATION",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "alone",
+        "mobility_detail": "walks fine",
+        "medical": "oxygen",
+        "extra": "water is starting to come in the door"
+      },
+      "speech_style": "polite, short answers",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-006",
+    "display_name": "Mdm Kamala Devi",
+    "synthetic": true,
+    "age": 83,
+    "gender": "F",
+    "languages": [
+      "ta"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ta",
+    "location": {
+      "lat": 3.04954,
+      "lng": 101.51522
+    },
+    "address_label": "No. 34, Jalan Bakti 3 (fictional)",
+    "floor": 0,
+    "lives_alone": false,
+    "mobility": "walker",
+    "medical_flags": [
+      "dialysis"
+    ],
+    "next_of_kin": {
+      "name": "Kamala Mei",
+      "relation": "nephew",
+      "phone_masked": "+60 1X-XXX 2743"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "NEEDS_EVACUATION",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "with daughter",
+        "mobility_detail": "uses a walker, knees are bad",
+        "medical": "dialysis",
+        "extra": "water is starting to come in the door"
+      },
+      "speech_style": "calm and matter-of-fact",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-007",
+    "display_name": "En Ahmad Zaki",
+    "synthetic": true,
+    "age": 89,
+    "gender": "M",
+    "languages": [
+      "ms"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ms",
+    "location": {
+      "lat": 3.0538,
+      "lng": 101.50457
+    },
+    "address_label": "No. 68, Jalan Sungai 6 (fictional)",
+    "floor": 0,
+    "lives_alone": true,
+    "mobility": "walker",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Ahmad Ken",
+      "relation": "neighbour",
+      "phone_masked": "+60 1X-XXX 1319"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "NEEDS_EVACUATION",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "alone",
+        "mobility_detail": "uses a walker, knees are bad",
+        "medical": "no major issues",
+        "extra": "water is starting to come in the door; worried about her cat"
+      },
+      "speech_style": "polite, short answers",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-008",
+    "display_name": "Mr Cheung Kwok Keung",
+    "synthetic": true,
+    "age": 60,
+    "gender": "M",
+    "languages": [
+      "yue"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "yue",
+    "location": {
+      "lat": 3.0596,
+      "lng": 101.51949
+    },
+    "address_label": "No. 11, Lorong Damai 2 (fictional)",
+    "floor": 0,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Cheung Mei",
+      "relation": "nephew",
+      "phone_masked": "+60 1X-XXX 3060"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "NEEDS_EVACUATION",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "with spouse",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": "water is starting to come in the door"
+      },
+      "speech_style": "slow, repeats themselves",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-009",
+    "display_name": "Pn Rohani Ismail",
+    "synthetic": true,
+    "age": 78,
+    "gender": "F",
+    "languages": [
+      "ms"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ms",
+    "location": {
+      "lat": 3.05648,
+      "lng": 101.51982
+    },
+    "address_label": "No. 70, Lorong Indah 5 (fictional)",
+    "floor": 0,
+    "lives_alone": true,
+    "mobility": "walker",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Rohani Ken",
+      "relation": "daughter",
+      "phone_masked": "+60 1X-XXX 7118"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "NEEDS_HELP",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "alone",
+        "mobility_detail": "uses a walker, knees are bad",
+        "medical": "no major issues",
+        "extra": "needs help moving belongings and rice upstairs"
+      },
+      "speech_style": "slow, repeats themselves",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-010",
+    "display_name": "En Hashim Omar",
+    "synthetic": true,
+    "age": 63,
+    "gender": "M",
+    "languages": [
+      "ms"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ms",
+    "location": {
+      "lat": 3.05024,
+      "lng": 101.5019
+    },
+    "address_label": "No. 71, Lorong Indah 4 (fictional)",
+    "floor": 0,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Hashim Wei",
+      "relation": "niece",
+      "phone_masked": "+60 1X-XXX 2163"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "NEEDS_HELP",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "with daughter",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": "needs help moving belongings and rice upstairs"
+      },
+      "speech_style": "polite, short answers",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-011",
+    "display_name": "Mr Chua Kim Seng",
+    "synthetic": true,
+    "age": 72,
+    "gender": "M",
+    "languages": [
+      "zh"
+    ],
+    "dialect_hint": "Hokkien",
+    "preferred_language": "zh",
+    "location": {
+      "lat": 3.0533,
+      "lng": 101.51127
+    },
+    "address_label": "No. 36, Lorong Damai 4 (fictional)",
+    "floor": 1,
+    "lives_alone": true,
+    "mobility": "independent",
+    "medical_flags": [
+      "heart_condition"
+    ],
+    "next_of_kin": {
+      "name": "Chua Mei",
+      "relation": "daughter",
+      "phone_masked": "+60 1X-XXX 3167"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "MEDICAL",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 1",
+        "with": "alone",
+        "mobility_detail": "walks fine",
+        "medical": "heart_condition",
+        "extra": "chest feels tight since this morning"
+      },
+      "speech_style": "cheerful, slightly hard of hearing",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-012",
+    "display_name": "Mdm Ong Gek Lan",
+    "synthetic": true,
+    "age": 76,
+    "gender": "F",
+    "languages": [
+      "zh"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "zh",
+    "location": {
+      "lat": 3.05708,
+      "lng": 101.50823
+    },
+    "address_label": "No. 53, Lorong Damai 1 (fictional)",
+    "floor": 2,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [
+      "dementia"
+    ],
+    "next_of_kin": {
+      "name": "Ong Wei",
+      "relation": "niece",
+      "phone_masked": "+60 1X-XXX 1993"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "MEDICAL",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 2",
+        "with": "with husband",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": "husband fell in the kitchen and cannot get up"
+      },
+      "speech_style": "calm and matter-of-fact",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-013",
+    "display_name": "Mr Peter Gomez",
+    "synthetic": true,
+    "age": 77,
+    "gender": "M",
+    "languages": [
+      "en"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "en",
+    "location": {
+      "lat": 3.05567,
+      "lng": 101.50416
+    },
+    "address_label": "No. 24, Jalan Tebing 8 (fictional)",
+    "floor": 1,
+    "lives_alone": true,
+    "mobility": "independent",
+    "medical_flags": [
+      "dementia"
+    ],
+    "next_of_kin": {
+      "name": "Peter Aina",
+      "relation": "son",
+      "phone_masked": "+60 1X-XXX 2235"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 1",
+        "with": "alone",
+        "mobility_detail": "walks fine",
+        "medical": "dementia",
+        "extra": "confused, says safe but also says water is in the house"
+      },
+      "speech_style": "slow, repeats themselves",
+      "ambiguous": true,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-014",
+    "display_name": "En Kamal Idris",
+    "synthetic": true,
+    "age": 60,
+    "gender": "M",
+    "languages": [
+      "ms"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ms",
+    "location": {
+      "lat": 3.06099,
+      "lng": 101.51738
+    },
+    "address_label": "No. 12, Lorong Indah 3 (fictional)",
+    "floor": 3,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Kamal Ken",
+      "relation": "neighbour",
+      "phone_masked": "+60 1X-XXX 8956"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 2,
+      "facts": {
+        "where": "home, floor 3",
+        "with": "with adult son",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "chatty, a little anxious",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-015",
+    "display_name": "Mdm Lau Yuk Ying",
+    "synthetic": true,
+    "age": 75,
+    "gender": "F",
+    "languages": [
+      "yue"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "yue",
+    "location": {
+      "lat": 3.06083,
+      "lng": 101.50654
+    },
+    "address_label": "No. 59, Jalan Tebing 7 (fictional)",
+    "floor": 0,
+    "lives_alone": false,
+    "mobility": "walker",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Lau Mei",
+      "relation": "son",
+      "phone_masked": "+60 1X-XXX 8973"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "NEEDS_EVACUATION",
+      "answers_on_attempt": 2,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "with spouse",
+        "mobility_detail": "uses a walker, knees are bad",
+        "medical": "no major issues",
+        "extra": "water is starting to come in the door"
+      },
+      "speech_style": "chatty, a little anxious",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-016",
+    "display_name": "Mr Wong Chi Ming",
+    "synthetic": true,
+    "age": 71,
+    "gender": "M",
+    "languages": [
+      "yue"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "yue",
+    "location": {
+      "lat": 3.05008,
+      "lng": 101.51056
+    },
+    "address_label": "No. 68, Lorong Indah 1 (fictional)",
+    "floor": 0,
+    "lives_alone": true,
+    "mobility": "independent",
+    "medical_flags": [
+      "recent_surgery"
+    ],
+    "next_of_kin": {
+      "name": "Wong Mei",
+      "relation": "neighbour",
+      "phone_masked": "+60 1X-XXX 2312"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": null,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "alone",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "chatty, a little anxious",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-017",
+    "display_name": "En Razak Ali",
+    "synthetic": true,
+    "age": 82,
+    "gender": "M",
+    "languages": [
+      "ms"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ms",
+    "location": {
+      "lat": 3.05605,
+      "lng": 101.5125
+    },
+    "address_label": "No. 6, Jalan Bakti 2 (fictional)",
+    "floor": 0,
+    "lives_alone": true,
+    "mobility": "independent",
+    "medical_flags": [
+      "hearing_impaired"
+    ],
+    "next_of_kin": {
+      "name": "Razak Ken",
+      "relation": "daughter",
+      "phone_masked": "+60 1X-XXX 9565"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": null,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "alone",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "calm and matter-of-fact",
+      "ambiguous": false,
+      "volunteer_outcome": "CANNOT_LOCATE"
+    }
+  },
+  {
+    "resident_id": "R-018",
+    "display_name": "En Ismail Bakar",
+    "synthetic": true,
+    "age": 91,
+    "gender": "M",
+    "languages": [
+      "ms"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ms",
+    "location": {
+      "lat": 3.05255,
+      "lng": 101.50399
+    },
+    "address_label": "No. 39, Lorong Damai 6 (fictional)",
+    "floor": 4,
+    "lives_alone": false,
+    "mobility": "bedridden",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Ismail Wei",
+      "relation": "daughter",
+      "phone_masked": "+60 1X-XXX 1152"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 4",
+        "with": "with adult son",
+        "mobility_detail": "bedridden, needs carer",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "cheerful, slightly hard of hearing",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-019",
+    "display_name": "Mdm Leung Siu Wah",
+    "synthetic": true,
+    "age": 72,
+    "gender": "F",
+    "languages": [
+      "yue"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "yue",
+    "location": {
+      "lat": 3.05532,
+      "lng": 101.50402
+    },
+    "address_label": "No. 45, Jalan Sungai 4 (fictional)",
+    "floor": 5,
+    "lives_alone": false,
+    "mobility": "wheelchair",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Leung Ravi",
+      "relation": "son",
+      "phone_masked": "+60 1X-XXX 5669"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 5",
+        "with": "with spouse",
+        "mobility_detail": "uses a wheelchair",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "slow, repeats themselves",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-020",
+    "display_name": "Mdm Ng Bee Choo",
+    "synthetic": true,
+    "age": 45,
+    "gender": "F",
+    "languages": [
+      "zh"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "zh",
+    "location": {
+      "lat": 3.05718,
+      "lng": 101.51204
+    },
+    "address_label": "No. 14, Lorong Indah 5 (fictional)",
+    "floor": 6,
+    "lives_alone": false,
+    "mobility": "wheelchair",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Ng Wei",
+      "relation": "nephew",
+      "phone_masked": "+60 1X-XXX 2753"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 6",
+        "with": "with daughter",
+        "mobility_detail": "uses a wheelchair",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "cheerful, slightly hard of hearing",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-021",
+    "display_name": "Mr Joseph Fernandez",
+    "synthetic": true,
+    "age": 48,
+    "gender": "M",
+    "languages": [
+      "en"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "en",
+    "location": {
+      "lat": 3.05741,
+      "lng": 101.51771
+    },
+    "address_label": "No. 65, Lorong Damai 5 (fictional)",
+    "floor": 3,
+    "lives_alone": false,
+    "mobility": "walker",
+    "medical_flags": [
+      "recent_surgery"
+    ],
+    "next_of_kin": {
+      "name": "Joseph Wei",
+      "relation": "daughter",
+      "phone_masked": "+60 1X-XXX 2512"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 3",
+        "with": "with daughter",
+        "mobility_detail": "uses a walker, knees are bad",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "slow, repeats themselves",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-022",
+    "display_name": "Pn Mariam Salleh",
+    "synthetic": true,
+    "age": 57,
+    "gender": "F",
+    "languages": [
+      "ms"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ms",
+    "location": {
+      "lat": 3.051,
+      "lng": 101.52012
+    },
+    "address_label": "No. 21, Lorong Damai 9 (fictional)",
+    "floor": 2,
+    "lives_alone": false,
+    "mobility": "walker",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Mariam Ken",
+      "relation": "son",
+      "phone_masked": "+60 1X-XXX 1158"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 2",
+        "with": "with spouse",
+        "mobility_detail": "uses a walker, knees are bad",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "polite, short answers",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-023",
+    "display_name": "Mrs Mary D'Cruz",
+    "synthetic": true,
+    "age": 87,
+    "gender": "F",
+    "languages": [
+      "en"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "en",
+    "location": {
+      "lat": 3.05375,
+      "lng": 101.512
+    },
+    "address_label": "No. 56, Lorong Indah 1 (fictional)",
+    "floor": 1,
+    "lives_alone": true,
+    "mobility": "walker",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Mary Ravi",
+      "relation": "daughter",
+      "phone_masked": "+60 1X-XXX 6974"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 1",
+        "with": "alone",
+        "mobility_detail": "uses a walker, knees are bad",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "polite, short answers",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-024",
+    "display_name": "Mr Koh Ah Huat",
+    "synthetic": true,
+    "age": 91,
+    "gender": "M",
+    "languages": [
+      "zh"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "zh",
+    "location": {
+      "lat": 3.05068,
+      "lng": 101.51632
+    },
+    "address_label": "No. 53, Jalan Bakti 3 (fictional)",
+    "floor": 0,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Koh Aina",
+      "relation": "daughter",
+      "phone_masked": "+60 1X-XXX 3662"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "with spouse",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "slow, repeats themselves",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-025",
+    "display_name": "Mdm Lakshmi Raman",
+    "synthetic": true,
+    "age": 78,
+    "gender": "F",
+    "languages": [
+      "ta"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ta",
+    "location": {
+      "lat": 3.05756,
+      "lng": 101.50877
+    },
+    "address_label": "No. 5, Lorong Damai 4 (fictional)",
+    "floor": 0,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [
+      "heart_condition",
+      "dementia"
+    ],
+    "next_of_kin": {
+      "name": "Lakshmi Aina",
+      "relation": "daughter",
+      "phone_masked": "+60 1X-XXX 8541"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "with adult son",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "calm and matter-of-fact",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-026",
+    "display_name": "Mr Teo Chin Hock",
+    "synthetic": true,
+    "age": 60,
+    "gender": "M",
+    "languages": [
+      "zh"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "zh",
+    "location": {
+      "lat": 3.05172,
+      "lng": 101.50774
+    },
+    "address_label": "No. 9, Jalan Tebing 6 (fictional)",
+    "floor": 0,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Teo Mei",
+      "relation": "daughter",
+      "phone_masked": "+60 1X-XXX 7548"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "with daughter",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "cheerful, slightly hard of hearing",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-027",
+    "display_name": "Mr Foo Chee Keong",
+    "synthetic": true,
+    "age": 69,
+    "gender": "M",
+    "languages": [
+      "zh"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "zh",
+    "location": {
+      "lat": 3.04994,
+      "lng": 101.51283
+    },
+    "address_label": "No. 45, Jalan Tebing 7 (fictional)",
+    "floor": 0,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [
+      "hypertension"
+    ],
+    "next_of_kin": {
+      "name": "Foo Mei",
+      "relation": "nephew",
+      "phone_masked": "+60 1X-XXX 9379"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "with spouse",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "slow, repeats themselves",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-028",
+    "display_name": "Mdm Lee Siew Hoon",
+    "synthetic": true,
+    "age": 78,
+    "gender": "F",
+    "languages": [
+      "zh"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "zh",
+    "location": {
+      "lat": 3.05451,
+      "lng": 101.51138
+    },
+    "address_label": "No. 69, Lorong Indah 6 (fictional)",
+    "floor": 0,
+    "lives_alone": true,
+    "mobility": "independent",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Lee Ken",
+      "relation": "daughter",
+      "phone_masked": "+60 1X-XXX 2146"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "alone",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "calm and matter-of-fact",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-029",
+    "display_name": "Mrs Rita Pereira",
+    "synthetic": true,
+    "age": 93,
+    "gender": "F",
+    "languages": [
+      "en"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "en",
+    "location": {
+      "lat": 3.05306,
+      "lng": 101.50926
+    },
+    "address_label": "No. 52, Jalan Tebing 9 (fictional)",
+    "floor": 1,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Rita Aina",
+      "relation": "son",
+      "phone_masked": "+60 1X-XXX 4143"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 1",
+        "with": "with adult son",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "slow, repeats themselves",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-030",
+    "display_name": "Mr Subramaniam Pillai",
+    "synthetic": true,
+    "age": 89,
+    "gender": "M",
+    "languages": [
+      "ta"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ta",
+    "location": {
+      "lat": 3.05417,
+      "lng": 101.51734
+    },
+    "address_label": "No. 39, Jalan Tebing 4 (fictional)",
+    "floor": 1,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Subramaniam Ken",
+      "relation": "daughter",
+      "phone_masked": "+60 1X-XXX 6279"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 1",
+        "with": "with adult son",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "slow, repeats themselves",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-031",
+    "display_name": "Mdm Yap Swee Lian",
+    "synthetic": true,
+    "age": 62,
+    "gender": "F",
+    "languages": [
+      "zh"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "zh",
+    "location": {
+      "lat": 3.05048,
+      "lng": 101.51129
+    },
+    "address_label": "No. 80, Jalan Tebing 2 (fictional)",
+    "floor": 1,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [
+      "recent_surgery"
+    ],
+    "next_of_kin": {
+      "name": "Yap Aina",
+      "relation": "niece",
+      "phone_masked": "+60 1X-XXX 6085"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 1",
+        "with": "with spouse",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "chatty, a little anxious",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-032",
+    "display_name": "Mdm Sim Ah Moi",
+    "synthetic": true,
+    "age": 89,
+    "gender": "F",
+    "languages": [
+      "zh"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "zh",
+    "location": {
+      "lat": 3.05427,
+      "lng": 101.51347
+    },
+    "address_label": "No. 25, Lorong Damai 8 (fictional)",
+    "floor": 1,
+    "lives_alone": true,
+    "mobility": "independent",
+    "medical_flags": [
+      "diabetes"
+    ],
+    "next_of_kin": {
+      "name": "Sim Ken",
+      "relation": "niece",
+      "phone_masked": "+60 1X-XXX 4997"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 1",
+        "with": "alone",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "chatty, a little anxious",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-033",
+    "display_name": "Mr Low Teck Meng",
+    "synthetic": true,
+    "age": 73,
+    "gender": "M",
+    "languages": [
+      "zh"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "zh",
+    "location": {
+      "lat": 3.05152,
+      "lng": 101.5197
+    },
+    "address_label": "No. 67, Lorong Damai 1 (fictional)",
+    "floor": 2,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Low Mei",
+      "relation": "son",
+      "phone_masked": "+60 1X-XXX 5082"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 2",
+        "with": "with spouse",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "slow, repeats themselves",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-034",
+    "display_name": "Pn Fatimah Yusof",
+    "synthetic": true,
+    "age": 87,
+    "gender": "F",
+    "languages": [
+      "ms"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ms",
+    "location": {
+      "lat": 3.06043,
+      "lng": 101.51844
+    },
+    "address_label": "No. 79, Jalan Bakti 7 (fictional)",
+    "floor": 3,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [
+      "hearing_impaired"
+    ],
+    "next_of_kin": {
+      "name": "Fatimah Mei",
+      "relation": "neighbour",
+      "phone_masked": "+60 1X-XXX 8305"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 3",
+        "with": "with spouse",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "slow, repeats themselves",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-035",
+    "display_name": "Mdm Parvathi Nair",
+    "synthetic": true,
+    "age": 86,
+    "gender": "F",
+    "languages": [
+      "ta"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ta",
+    "location": {
+      "lat": 3.05225,
+      "lng": 101.50986
+    },
+    "address_label": "No. 37, Lorong Indah 5 (fictional)",
+    "floor": 4,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [
+      "hearing_impaired"
+    ],
+    "next_of_kin": {
+      "name": "Parvathi Ravi",
+      "relation": "nephew",
+      "phone_masked": "+60 1X-XXX 6238"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 4",
+        "with": "with daughter",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "polite, short answers",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-036",
+    "display_name": "Mdm Toh Geok Eng",
+    "synthetic": true,
+    "age": 63,
+    "gender": "F",
+    "languages": [
+      "zh"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "zh",
+    "location": {
+      "lat": 3.05427,
+      "lng": 101.50779
+    },
+    "address_label": "No. 60, Lorong Damai 1 (fictional)",
+    "floor": 5,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [
+      "dementia"
+    ],
+    "next_of_kin": {
+      "name": "Toh Aina",
+      "relation": "daughter",
+      "phone_masked": "+60 1X-XXX 7883"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 5",
+        "with": "with adult son",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "cheerful, slightly hard of hearing",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-037",
+    "display_name": "Mdm Wong Mei Ling",
+    "synthetic": true,
+    "age": 66,
+    "gender": "F",
+    "languages": [
+      "zh"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "zh",
+    "location": {
+      "lat": 3.04957,
+      "lng": 101.50818
+    },
+    "address_label": "No. 50, Lorong Damai 9 (fictional)",
+    "floor": 6,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Wong Mei",
+      "relation": "son",
+      "phone_masked": "+60 1X-XXX 4613"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 6",
+        "with": "with adult son",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "chatty, a little anxious",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-038",
+    "display_name": "Pn Siti Aminah",
+    "synthetic": true,
+    "age": 66,
+    "gender": "F",
+    "languages": [
+      "ms"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ms",
+    "location": {
+      "lat": 3.0514,
+      "lng": 101.51038
+    },
+    "address_label": "No. 17, Jalan Bakti 9 (fictional)",
+    "floor": 8,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [
+      "hypertension"
+    ],
+    "next_of_kin": {
+      "name": "Siti Wei",
+      "relation": "niece",
+      "phone_masked": "+60 1X-XXX 7455"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 8",
+        "with": "with daughter",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "cheerful, slightly hard of hearing",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-039",
+    "display_name": "Mr Muthu Krishnan",
+    "synthetic": true,
+    "age": 90,
+    "gender": "M",
+    "languages": [
+      "ta"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ta",
+    "location": {
+      "lat": 3.05947,
+      "lng": 101.50495
+    },
+    "address_label": "No. 34, Lorong Damai 6 (fictional)",
+    "floor": 10,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Muthu Aina",
+      "relation": "son",
+      "phone_masked": "+60 1X-XXX 8449"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, floor 10",
+        "with": "with adult son",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "calm and matter-of-fact",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  },
+  {
+    "resident_id": "R-040",
+    "display_name": "Pn Zainab Hassan",
+    "synthetic": true,
+    "age": 66,
+    "gender": "F",
+    "languages": [
+      "ms"
+    ],
+    "dialect_hint": null,
+    "preferred_language": "ms",
+    "location": {
+      "lat": 3.0591,
+      "lng": 101.51044
+    },
+    "address_label": "No. 70, Jalan Sungai 6 (fictional)",
+    "floor": 0,
+    "lives_alone": false,
+    "mobility": "independent",
+    "medical_flags": [],
+    "next_of_kin": {
+      "name": "Zainab Aina",
+      "relation": "niece",
+      "phone_masked": "+60 1X-XXX 2124"
+    },
+    "is_live_demo": false,
+    "persona": {
+      "scripted_outcome": "SAFE_IN_PLACE",
+      "answers_on_attempt": 1,
+      "facts": {
+        "where": "home, ground floor",
+        "with": "with daughter",
+        "mobility_detail": "walks fine",
+        "medical": "no major issues",
+        "extra": ""
+      },
+      "speech_style": "polite, short answers",
+      "ambiguous": false,
+      "volunteer_outcome": null
+    }
+  }
+]

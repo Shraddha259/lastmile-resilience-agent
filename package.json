@@ -1,0 +1,15 @@
+{
+  "name": "lastmile-resilience-agent",
+  "private": true,
+  "description": "Repo-level tooling: Firebase emulators and formatting",
+  "scripts": {
+    "emulators": "firebase emulators:start --config infra/firebase.json --project demo-lastmile",
+    "emulators:exec": "firebase emulators:exec --config infra/firebase.json --project demo-lastmile --only firestore,auth",
+    "format": "prettier --write \"frontend/src/**/*.{ts,tsx,css}\" \"**/*.md\"",
+    "format:check": "prettier --check \"frontend/src/**/*.{ts,tsx,css}\""
+  },
+  "devDependencies": {
+    "firebase-tools": "^15.33.0",
+    "prettier": "^3.9.10"
+  }
+}

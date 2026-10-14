@@ -1,0 +1,64 @@
+# Lint + tests + secret scan on every PR and push to main. No deploys (PRD §8).
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  secrets:
+    name: Secret scan (NFR-S1, AC-12)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: gitleaks
+        run: docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.30.1 detect --source=/repo --redact -v
+      - name: No .env files tracked
+        run: |
+          if git ls-files | grep -E '(^|/)\.env(\..*)?$' | grep -v '\.env\.example$'; then
+            echo "::error::.env files must not be committed"; exit 1; fi
+
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - run: npm ci
+      - name: Lint
+        working-directory: backend
+        run: uv run ruff check . && uv run ruff format --check .
+      - name: Generated types are up to date
+        run: cd backend && uv run python scripts/export_types.py && git diff --exit-code -- ../frontend/src/types.gen.ts
+      - name: Unit + scenario tests (Firestore emulator, fake GenAI)
+        run: npx firebase emulators:exec --config infra/firebase.json --project demo-lastmile --only firestore "cd backend && uv run pytest -q"
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build

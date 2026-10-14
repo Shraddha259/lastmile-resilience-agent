@@ -1,0 +1,30 @@
+# Secrets and local config — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+service-account*.json
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+frontend/dist/
+
+# Firebase emulator
+*-debug.log
+.firebase/
+emulator-data/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.claude/
