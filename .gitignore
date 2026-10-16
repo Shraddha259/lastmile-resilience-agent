@@ -32,3 +32,4 @@ emulator-data/
 .claude/settings.local.json
 .claude/scratch/*
 !.claude/scratch/README.md
+infra/dist/

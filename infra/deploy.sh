@@ -70,6 +70,8 @@ frontend() {
     exit 1
   }
   (cd "$ROOT/frontend" && npm ci && npm run build)
+  # Firebase Hosting's public dir must sit inside the firebase.json directory.
+  rm -rf "$ROOT/infra/dist" && cp -R "$ROOT/frontend/dist" "$ROOT/infra/dist"
   (cd "$ROOT" && npx firebase deploy --config infra/firebase.json --project "$PROJECT" \
     --only hosting,firestore:rules,firestore:indexes)
 }

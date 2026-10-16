@@ -61,6 +61,120 @@ infra/     firebase.json, Firestore rules, deploy.sh (free-tier flags; run manua
 docs/      PRD, architecture, decisions, backlog, costs, eval results
 ```
 
+## Deploy to Google Cloud (Firebase Hosting + Cloud Run)
+
+The web app goes to Firebase Hosting, the API to Cloud Run and the data to Firestore. Cloud Run needs a linked
+billing account (Blaze plan), but the demo is sized to stay inside the free allowances (`docs/COSTS.md`).
+Create a **budget alert** first: alerts notify you, they do not cap spend. Run the steps in order from the repo
+root; each one assumes the previous one succeeded.
+
+```bash
+export PROJECT=<your-gcp-project-id>
+export REGION=asia-southeast1
+export SERVICE=lastmile-api
+```
+
+### One-time setup
+
+1. **Prerequisites.** Install `gcloud` and Node. Create a Firebase/GCP project and link billing.
+2. **Log in** (three separate logins; the seed script needs the third):
+   ```bash
+   gcloud auth login
+   npx firebase login
+   gcloud auth application-default login
+   ```
+3. **Gemini API key.** Create one at <https://aistudio.google.com/apikey> in a project **without billing** so it
+   stays on the free tier. Decline any "upgrade to paid" prompt. Pick a demo passcode (for example
+   `openssl rand -base64 12`) and keep it: you type it into the web app.
+4. **Setup script.** Enables APIs, creates Firestore, the `lastmile-run` service account (least privilege) and the
+   `demo-passcode` / `gemini-api-key` secrets, then seeds synthetic data. It prompts for the passcode and key
+   (hidden input) and for confirmation before seeding the real project:
+   ```bash
+   PROJECT=$PROJECT ./infra/deploy.sh setup
+   ```
+5. **Firebase web app + frontend env.** Register a web app, print its config, and write `frontend/.env.production`
+   (gitignored). Variables: `VITE_API_BASE_URL` (the Cloud Run URL from step 7), `VITE_FIREBASE_API_KEY`,
+   `VITE_FIREBASE_AUTH_DOMAIN`, `VITE_FIREBASE_PROJECT_ID`, `VITE_FIREBASE_APP_ID`, `VITE_USE_EMULATORS=false`.
+   ```bash
+   npx firebase apps:create WEB lastmile-web --project $PROJECT
+   npx firebase apps:sdkconfig WEB <app-id-printed-above> --project $PROJECT
+   ```
+6. **Enable Firebase Authentication.** In the console open Build → Authentication → **Get started**, then
+   Sign-in method → **Anonymous** → Enable → Save. The console's live reads need anonymous sign-in. (`/pilot`
+   additionally needs the Google provider.)
+
+### Every deploy
+
+7. **Check quality**, then **deploy the backend** (a few minutes; answer `Y` to prompts):
+   ```bash
+   make lint && make test
+   CLOUDSDK_CORE_PROJECT=$PROJECT PROJECT=$PROJECT ./infra/deploy.sh backend
+   gcloud run services describe $SERVICE --region $REGION --project $PROJECT --format='value(status.url)'
+   ```
+   Put that URL in `VITE_API_BASE_URL` in `frontend/.env.production` if you have not already.
+8. **Set the Gemini model and rate** (free-tier limits are low and model availability changes, so re-apply after a
+   source deploy and verify the models first, see "Gemini troubleshooting" below):
+   ```bash
+   gcloud run services update $SERVICE --region $REGION --project $PROJECT \
+     --update-env-vars GEMINI_RPM=4,GEMINI_AGENT_MODEL=gemini-2.5-flash-lite,GEMINI_FALLBACK_MODEL=gemini-3.5-flash-lite
+   ```
+9. **Check the backend:**
+   ```bash
+   curl -s https://<service-url>/api/health      # expect "status":"ok" and your model names
+   ```
+10. **Deploy the frontend, Firestore rules and indexes.** Builds the app, copies it to `infra/dist` (Hosting must
+    read from inside `infra/`) and deploys:
+    ```bash
+    PROJECT=$PROJECT ./infra/deploy.sh frontend
+    curl -s -o /dev/null -w '%{http_code}\n' https://$PROJECT.web.app/     # expect 200
+    ```
+11. **Try it.** Open `https://$PROJECT.web.app`, enter the passcode, start the scenario. Residents should move from
+    Waiting to Done / Help on the way / Human needed. Press **Reset** afterwards.
+
+### Operations
+
+- **Change the Gemini key.** Add a secret version (hidden input), then point the service at it:
+  ```bash
+  read -s -p "New Gemini key: " K; echo
+  printf '%s' "$K" | gcloud secrets versions add gemini-api-key --data-file=- --project $PROJECT; unset K
+  gcloud secrets versions list gemini-api-key --project $PROJECT      # note the new version number
+  gcloud run services update $SERVICE --region $REGION --project $PROJECT \
+    --update-secrets GEMINI_API_KEY=gemini-api-key:<new-version>
+  ```
+- **Read recent errors:**
+  ```bash
+  gcloud logging read "resource.type=cloud_run_revision AND resource.labels.service_name=$SERVICE AND severity>=WARNING" \
+    --limit 20 --freshness 30m --project $PROJECT
+  ```
+- **Roll back** to an earlier revision (list them with `gcloud run revisions list --service $SERVICE --region $REGION`):
+  ```bash
+  gcloud run services update-traffic $SERVICE --region $REGION --project $PROJECT --to-revisions <revision>=100
+  ```
+- **No Gemini calls at all** (demo with the rule-based policy only): add `GENAI_MODE=fake` to `--update-env-vars`;
+  use `GENAI_MODE=real` to switch back.
+
+### Gemini troubleshooting
+
+| Log message / symptom                      | Meaning                                | Fix                                                |
+| ------------------------------------------ | -------------------------------------- | -------------------------------------------------- |
+| `429 Too Many Requests` on a model         | No or low free quota for that model    | Lower `GEMINI_RPM`, or switch `GEMINI_AGENT_MODEL` |
+| `404 ... no longer available to new users` | Model retired for new keys             | Pick a model that your key can call (below)        |
+| `503 ... high demand`                      | Temporary overload on Google's side    | Retry; use a lighter (`-lite`) model               |
+| Cases still finish but without Gemini      | Calls failed, rule-based fallback used | Expected safety behaviour, not an outage           |
+
+Model availability changes. List what your key can call (the key never leaves your shell), then test one:
+
+```bash
+K=$(gcloud secrets versions access latest --secret gemini-api-key --project $PROJECT)
+curl -s -H "x-goog-api-key: $K" "https://generativelanguage.googleapis.com/v1beta/models?pageSize=200" | grep '"name"'
+curl -s -o /dev/null -w '%{http_code}\n' -H "x-goog-api-key: $K" -H 'Content-Type: application/json' \
+  -d '{"contents":[{"parts":[{"text":"Reply with the word ok"}]}]}' \
+  "https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent"; unset K
+```
+
+Notes: a failed "Could not upload file" during `deploy.sh backend` is usually transient, so retry. Never paste the
+Gemini key or passcode into chat, tickets or commits.
+
 ## Responsible AI
 
 The LLM proposes, code decides: tool calls are validated against the state machine; the agent can only confirm
