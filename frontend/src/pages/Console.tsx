@@ -1,6 +1,10 @@
-import { useEffect, useMemo, useState } from "react";
+import { limit, orderBy } from "firebase/firestore";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ApiError, api } from "../api";
+import { AgentLog } from "../components/AgentLog";
+import { AiStatusBadge } from "../components/AiStatusBadge";
+import { CaseDrawer } from "../components/CaseDrawer";
 import { Footer } from "../components/Footer";
 import { MapView } from "../components/MapView";
 import { SafeCounter } from "../components/SafeCounter";
@@ -8,7 +12,7 @@ import { StatusBoard } from "../components/StatusBoard";
 import { usePasscode } from "../lib/passcode";
 import { fmtDuration, toDate } from "../lib/time";
 import { useCollection, useDoc } from "../lib/useFirestore";
-import type { Case, Incident, Resident, Shelter, Volunteer } from "../types.gen";
+import type { AgentEvent, Case, Incident, Resident, Shelter, Volunteer } from "../types.gen";
 
 function useNow(ms = 1000) {
   const [now, setNow] = useState(Date.now());
@@ -19,7 +23,7 @@ function useNow(ms = 1000) {
   return now;
 }
 
-/** Coordinator console v1 (PRD §16.3): header, map, counter, status board. */
+/** Coordinator console (PRD §16.3): header, map, counter, status board, agent log, case drawer. */
 export function Console() {
   const { incidentId = "" } = useParams();
   const navigate = useNavigate();
@@ -29,6 +33,14 @@ export function Console() {
   const residentsList = useCollection<Resident>("residents");
   const shelters = useCollection<Shelter>("shelters");
   const volunteers = useCollection<Volunteer>("volunteers");
+  // Capped at 200 so the UI stays fast with 300+ events (PRD §16.8) and reads stay bounded.
+  const events = useCollection<AgentEvent>(
+    `incidents/${incidentId}/agent_events`,
+    [orderBy("ts", "desc"), limit(200)],
+    "latest-200",
+  );
+  const [selected, setSelected] = useState<string | null>(null);
+  const closeDrawer = useCallback(() => setSelected(null), []);
   const [error, setError] = useState<string | null>(null);
   const [confirmStop, setConfirmStop] = useState(false);
   const now = useNow();
@@ -84,6 +96,7 @@ export function Console() {
         <span className="text-sm text-slate-700">
           Auto-approve: {inc.auto_approve_dispatch ? "on" : "off"}
         </span>
+        <AiStatusBadge events={events.data} />
         <div className="ml-auto flex flex-wrap items-center gap-2">
           {!passcode && (
             <input
@@ -168,6 +181,7 @@ export function Console() {
           residents={residents}
           shelters={shelters.data}
           volunteers={volunteers.data}
+          onSelect={setSelected}
         />
         <div className="flex flex-col gap-4">
           <SafeCounter
@@ -185,16 +199,30 @@ export function Console() {
             </ul>
           </section>
         </div>
-        <div className="lg:col-span-2">
+        <div className="grid gap-4 lg:col-span-2 xl:grid-cols-[3fr_2fr]">
           {cases.error ? (
             <p role="alert" className="text-red-700">
               Error: {cases.error}
             </p>
           ) : (
-            <StatusBoard cases={cases.data} residents={residents} />
+            <StatusBoard cases={cases.data} residents={residents} onSelect={setSelected} />
           )}
+          <AgentLog
+            events={events.data}
+            loading={events.loading}
+            error={events.error}
+            onSelect={setSelected}
+          />
         </div>
       </main>
+      {selected && (
+        <CaseDrawer
+          incidentId={incidentId}
+          residentId={selected}
+          resident={residents.get(selected)}
+          onClose={closeDrawer}
+        />
+      )}
       <Footer />
     </div>
   );

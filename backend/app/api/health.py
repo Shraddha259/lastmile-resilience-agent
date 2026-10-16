@@ -5,7 +5,7 @@ import asyncio
 from fastapi import APIRouter
 
 from app.config import get_settings
-from app.services import db
+from app.services import db, genai
 
 router = APIRouter(prefix="/api", tags=["health"])
 
@@ -31,4 +31,14 @@ async def health() -> dict:
             "tts": s.GEMINI_TTS_MODEL,
         },
         "firestore": firestore_ok,
+        # Counts since this instance started: lets anyone see whether Gemini is really used.
+        "ai": {
+            "decision_engine": "fallback-only" if s.FORCE_FALLBACK else s.DECISION_ENGINE,
+            "llm_ok": db.STATS["llm_ok"],
+            "llm_errors": db.STATS["llm_errors"],
+            "decisions": db.STATS["decisions"],
+            "decisions_fallback": db.STATS["decisions_fallback"],
+            "classifier_cached": db.STATS["classifier_cached"],
+            "last_error": {k: v for k, v in genai.last_error.items() if k != "at"} or None,
+        },
     }

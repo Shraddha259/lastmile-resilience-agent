@@ -1,10 +1,12 @@
-# Lint + tests + secret scan on every PR and push to main. No deploys (PRD §8).
+# Lint + tests + secret scan on every PR and push to main. No deploys (PRD §8);
+# deploys are manual, see deploy.yml. "Run workflow" in the Actions tab runs CI on demand.
 name: ci
 
 on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read

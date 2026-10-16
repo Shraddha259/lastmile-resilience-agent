@@ -1,0 +1,93 @@
+# Manual deploy to Google Cloud (Cloud Run backend + Firebase Hosting frontend).
+# Actions tab -> "deploy" -> Run workflow. Only runs from main (PRD §0.1 freeze rule).
+#
+# Keyless auth via Workload Identity Federation: no service-account key is stored in GitHub.
+# One-time setup and the repository variables are described in README "Deploy from GitHub Actions".
+name: deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: What to deploy
+        type: choice
+        options: [both, backend, frontend]
+        default: both
+      genai_mode:
+        description: real = Gemini (falls back to rules on quota errors); fake = no Gemini calls
+        type: choice
+        options: [real, fake]
+        default: real
+
+permissions:
+  contents: read
+  id-token: write # needed to mint the short-lived Google token
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  test:
+    name: Lint + tests before deploy
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - run: npm ci
+      - run: cd backend && uv run ruff check . && uv run ruff format --check .
+      - run: npx firebase emulators:exec --config infra/firebase.json --project demo-lastmile --only firestore "cd backend && uv run pytest -q"
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    environment: production # add required reviewers on this environment to gate deploys
+    env:
+      PROJECT: ${{ vars.GCP_PROJECT_ID }}
+      REGION: ${{ vars.GCP_REGION || 'asia-southeast1' }}
+      GENAI_MODE: ${{ inputs.genai_mode }}
+      GEMINI_AGENT_MODEL: ${{ vars.GEMINI_AGENT_MODEL }}
+      GEMINI_FALLBACK_MODEL: ${{ vars.GEMINI_FALLBACK_MODEL }}
+      GEMINI_RPM: ${{ vars.GEMINI_RPM }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check repository variables
+        run: |
+          for v in GCP_PROJECT_ID GCP_WIF_PROVIDER GCP_DEPLOY_SA; do
+            [[ -n "${!v}" ]] || { echo "::error::Repository variable $v is not set"; exit 1; }
+          done
+        env:
+          GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+          GCP_WIF_PROVIDER: ${{ vars.GCP_WIF_PROVIDER }}
+          GCP_DEPLOY_SA: ${{ vars.GCP_DEPLOY_SA }}
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_DEPLOY_SA }}
+      - uses: google-github-actions/setup-gcloud@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      # Empty model variables fall back to the defaults in deploy.sh.
+      - name: Deploy backend (Cloud Run)
+        if: inputs.target != 'frontend'
+        run: |
+          for v in GEMINI_AGENT_MODEL GEMINI_FALLBACK_MODEL GEMINI_RPM; do [[ -n "${!v}" ]] || unset "$v"; done
+          gcloud config set project "$PROJECT"
+          ./infra/deploy.sh backend
+      - name: Deploy frontend (Firebase Hosting + Firestore rules)
+        if: inputs.target != 'backend'
+        run: ./infra/deploy.sh frontend
+      - name: Health check
+        run: ./infra/deploy.sh status

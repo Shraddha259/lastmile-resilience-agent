@@ -68,7 +68,13 @@ backend() {
   local origins="${ALLOWED_ORIGINS:-https://${PROJECT}.web.app,https://${PROJECT}.firebaseapp.com}"
   # Until M5 (approval UI) and M4 (live voice) ship: auto-approve dispatch so bot volunteers
   # finish cases, and a short ring timeout so the two live residents don't wait 6+ minutes.
-  local m2="AUTO_APPROVE_DISPATCH=true@FORCE_FALLBACK=true@LIVE_RING_TIMEOUT_S=30"
+  # M3: the Gemini decision engine is on (FORCE_FALLBACK=false); quota errors fall back to policy.
+  local m2="AUTO_APPROVE_DISPATCH=true@FORCE_FALLBACK=${FORCE_FALLBACK:-false}@LIVE_RING_TIMEOUT_S=30"
+  # --set-env-vars replaces every variable, so model settings live here (verify them first
+  # with backend/scripts/check_models.py). Override any of these from the environment.
+  local ai="GENAI_MODE=${GENAI_MODE:-real}@GEMINI_RPM=${GEMINI_RPM:-10}"
+  ai+="@GEMINI_AGENT_MODEL=${GEMINI_AGENT_MODEL:-gemini-2.5-flash-lite}"
+  ai+="@GEMINI_FALLBACK_MODEL=${GEMINI_FALLBACK_MODEL:-gemini-2.5-flash}"
   # Scale to zero between demos; max 1 instance so the in-process worker (PRD §5.3) sees
   # every job; CPU stays allocated while the instance lives (instance-based billing).
   gcloud run deploy "$SERVICE" --source "$ROOT/backend" --region "$REGION" \
@@ -77,7 +83,7 @@ backend() {
     --no-cpu-throttling --min-instances 0 --max-instances 1 \
     --cpu 1 --memory 512Mi --timeout 3600 --concurrency 80 \
     --set-secrets DEMO_PASSCODE=demo-passcode:latest,GEMINI_API_KEY=gemini-api-key:latest \
-    --set-env-vars "^@^GCP_PROJECT_ID=${PROJECT}@GCP_REGION=${REGION}@TASKS_MODE=inline@DECISION_ENGINE=structured@PHASE=1@GENAI_MODE=real@GENAI_USE_VERTEX=false@LIVE_USE_AI_STUDIO=true@SIM_DIALOGUE_MODE=cached@ALLOWED_ORIGINS=${origins}@${m2}"
+    --set-env-vars "^@^GCP_PROJECT_ID=${PROJECT}@GCP_REGION=${REGION}@TASKS_MODE=inline@DECISION_ENGINE=structured@PHASE=1@${ai}@GENAI_USE_VERTEX=false@LIVE_USE_AI_STUDIO=true@SIM_DIALOGUE_MODE=cached@ALLOWED_ORIGINS=${origins}@${m2}"
 
   echo "Tip: keep Artifact Registry small (VERIFY the command first):"
   echo "  gcloud artifacts repositories set-cleanup-policies cloud-run-source-deploy \\"

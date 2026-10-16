@@ -7,7 +7,7 @@ import time
 from collections import defaultdict
 from typing import Any
 
-from app.agent import tools
+from app.agent import decision, tools
 from app.agent.context import current_incident
 from app.config import get_settings
 from app.models import ACTION_REQUIRED, Actor, CaseStatus, EventType, IncidentStatus
@@ -20,9 +20,11 @@ MAX_FALLBACK_STEPS = 3
 _locks: dict[tuple[str, str], asyncio.Lock] = defaultdict(asyncio.Lock)
 
 
-async def run_decision(incident_id: str, event: dict[str, Any], case: dict[str, Any]) -> None:
-    """[P1 M3] Structured-output decision engine hook (§12.0). Not wired in M2."""
-    return None
+async def run_decision(incident_id: str, event: dict[str, Any], case: dict[str, Any]):
+    """Run the configured decision engine (§12.0 structured in P1; ADK is P2)."""
+    if get_settings().DECISION_ENGINE != "structured":
+        raise NotImplementedError("DECISION_ENGINE=adk is a [P2] feature")
+    return await decision.run_decision(incident_id, event, case)
 
 
 async def handle_event(incident_id: str, event: dict[str, Any]) -> None:
@@ -56,17 +58,31 @@ async def _decide(inc: str, rid: str, event: dict[str, Any]) -> None:
     if status not in ACTION_REQUIRED:
         return
 
+    model = None
     if not s.FORCE_FALLBACK:
         try:
-            await asyncio.wait_for(run_decision(inc, event, case), timeout=s.AGENT_TIMEOUT_S)
-        except Exception:  # timeout or engine error -> fallback below
-            log.warning("decision failed", extra={"incident_id": inc, "resident_id": rid})
+            outcome = await asyncio.wait_for(
+                run_decision(inc, event, case), timeout=s.AGENT_TIMEOUT_S
+            )
+            model = outcome.model if outcome else None
+        except Exception as exc:  # timeout, model unavailable or engine error -> fallback
+            db.STATS["decision_errors"] += 1
+            log.warning(
+                "decision failed",
+                extra={
+                    "incident_id": inc,
+                    "resident_id": rid,
+                    "error_code": getattr(exc, "code", type(exc).__name__),
+                },
+            )
 
     steps, fallback_used = 0, False
     while steps < MAX_FALLBACK_STEPS:
         case = await db.get_doc(db.case_ref(inc, rid))
         if not case or CaseStatus(case["status"]) not in ACTION_REQUIRED:
             break
+        if not fallback_used:
+            db.STATS["decisions_fallback"] += 1
         res = await fallback.apply_step(inc, rid)
         fallback_used, steps = True, steps + 1
         if not res.get("ok"):
@@ -88,6 +104,7 @@ async def _decide(inc: str, rid: str, event: dict[str, Any]) -> None:
             "resident_id": rid,
             "event_type": event["type"],
             "fallback_used": fallback_used,
+            "model": model,
             "latency_ms": int((time.monotonic() - started) * 1000),
         },
     )
