@@ -83,22 +83,18 @@ export SERVICE=lastmile-api
    npx firebase login
    gcloud auth application-default login
    ```
-3. **Gemini API key.** Create one at <https://aistudio.google.com/apikey> in a project **without billing** so it
-   stays on the free tier. Decline any "upgrade to paid" prompt. Pick a demo passcode (for example
-   `openssl rand -base64 12`) and keep it: you type it into the web app.
-4. **Setup script.** Enables APIs, creates Firestore, the `lastmile-run` service account (least privilege) and the
-   `demo-passcode` / `gemini-api-key` secrets, then seeds synthetic data. It prompts for the passcode and key
-   (hidden input) and for confirmation before seeding the real project:
+3. **Demo passcode.** Pick one (for example `openssl rand -base64 12`) and keep it: you type it into the web app.
+4. **Setup script.** Enables APIs, creates Firestore, adds Firebase, creates the `lastmile-run` service account
+   (least privilege), stores the passcode as the `demo-passcode` secret, creates a Gemini API key restricted to the
+   Gemini API and stores it as `gemini-api-key`, then seeds synthetic data. It prompts for the passcode (hidden
+   input) and for confirmation before seeding. If you would rather use a key from AI Studio
+   (<https://aistudio.google.com/apikey>, in a project **without billing** so it stays on the free tier; decline any
+   "upgrade to paid" prompt), create the `gemini-api-key` secret yourself before running this step:
    ```bash
    PROJECT=$PROJECT ./infra/deploy.sh setup
    ```
-5. **Firebase web app + frontend env.** Register a web app, print its config, and write `frontend/.env.production`
-   (gitignored). Variables: `VITE_API_BASE_URL` (the Cloud Run URL from step 7), `VITE_FIREBASE_API_KEY`,
-   `VITE_FIREBASE_AUTH_DOMAIN`, `VITE_FIREBASE_PROJECT_ID`, `VITE_FIREBASE_APP_ID`, `VITE_USE_EMULATORS=false`.
-   ```bash
-   npx firebase apps:create WEB lastmile-web --project $PROJECT
-   npx firebase apps:sdkconfig WEB <app-id-printed-above> --project $PROJECT
-   ```
+5. **Frontend env.** Nothing to do: `deploy.sh frontend` (step 10) registers the Firebase web app if needed and
+   writes `frontend/.env.production` (gitignored) from the Cloud Run URL and the Firebase web config.
 6. **Enable Firebase Authentication.** In the console open Build → Authentication → **Get started**, then
    Sign-in method → **Anonymous** → Enable → Save. The console's live reads need anonymous sign-in. (`/pilot`
    additionally needs the Google provider.)
@@ -111,7 +107,7 @@ export SERVICE=lastmile-api
    CLOUDSDK_CORE_PROJECT=$PROJECT PROJECT=$PROJECT ./infra/deploy.sh backend
    gcloud run services describe $SERVICE --region $REGION --project $PROJECT --format='value(status.url)'
    ```
-   Put that URL in `VITE_API_BASE_URL` in `frontend/.env.production` if you have not already.
+   `PROJECT=$PROJECT ./infra/deploy.sh status` also prints the API and site URLs plus a health check.
 8. **Set the Gemini model and rate** (free-tier limits are low and model availability changes, so re-apply after a
    source deploy and verify the models first, see "Gemini troubleshooting" below):
    ```bash

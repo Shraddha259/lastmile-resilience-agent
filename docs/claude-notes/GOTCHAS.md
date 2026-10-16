@@ -10,3 +10,5 @@
 - 2026-10-14 — CI fails "types.gen.ts is stale" — run `make types` after editing `backend/app/models.py`.
 - 2026-10-14 — Prettier must not touch `docs/PRD.md` or `types.gen.ts` — both are in `.prettierignore`.
 - 2026-10-14 — A residents' risk score of 0 is valid (60–69, independent, upper floor, far from river).
+- 2026-10-15 — Gemini API rejects unrestricted API keys from June 2026 — `deploy.sh setup` creates a key restricted to `generativelanguage.googleapis.com`.
+- 2026-10-15 — Gemini free tier is best-effort and can drop to ~20 requests/day per model — quota exhaustion falls back to the rule-based policy; don't rely on it for judging.
