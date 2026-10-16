@@ -18,6 +18,11 @@ on:
         type: choice
         options: [real, fake]
         default: real
+      live_mode:
+        description: Live calls - voice (Gemini Live audio) or text (typed chat fallback)
+        type: choice
+        options: [voice, text]
+        default: voice
 
 permissions:
   contents: read
@@ -55,6 +60,8 @@ jobs:
       PROJECT: ${{ vars.GCP_PROJECT_ID }}
       REGION: ${{ vars.GCP_REGION || 'asia-southeast1' }}
       GENAI_MODE: ${{ inputs.genai_mode }}
+      LIVE_MODE: ${{ inputs.live_mode }}
+      GEMINI_LIVE_MODEL: ${{ vars.GEMINI_LIVE_MODEL }}
       GEMINI_AGENT_MODEL: ${{ vars.GEMINI_AGENT_MODEL }}
       GEMINI_FALLBACK_MODEL: ${{ vars.GEMINI_FALLBACK_MODEL }}
       GEMINI_RPM: ${{ vars.GEMINI_RPM }}
@@ -83,7 +90,7 @@ jobs:
       - name: Deploy backend (Cloud Run)
         if: inputs.target != 'frontend'
         run: |
-          for v in GEMINI_AGENT_MODEL GEMINI_FALLBACK_MODEL GEMINI_RPM; do [[ -n "${!v}" ]] || unset "$v"; done
+          for v in GEMINI_AGENT_MODEL GEMINI_FALLBACK_MODEL GEMINI_RPM GEMINI_LIVE_MODEL; do [[ -n "${!v}" ]] || unset "$v"; done
           gcloud config set project "$PROJECT"
           ./infra/deploy.sh backend
       - name: Deploy frontend (Firebase Hosting + Firestore rules)

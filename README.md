@@ -10,6 +10,7 @@ All data is synthetic. No real residents, names, phone numbers or addresses.
 |                         |                                                     |
 | ----------------------- | --------------------------------------------------- |
 | Spec                    | [docs/PRD.md](docs/PRD.md) (single source of truth) |
+| How it works (simple)   | [docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md)        |
 | Architecture            | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)        |
 | Work board              | [docs/BACKLOG.md](docs/BACKLOG.md)                  |
 | How to contribute       | [CONTRIBUTING.md](CONTRIBUTING.md)                  |
@@ -19,8 +20,8 @@ All data is synthetic. No real residents, names, phone numbers or addresses.
 
 ## Status
 
-Phase 1 MVP, milestones **M0–M2 done**, **M3 in progress** (decision engine, validator, agent log, case drawer).
-Next up: real Gemini on the deployed service, then M4 (live voice).
+Phase 1 MVP, milestones **M0–M2 done**, **M3 built** (decision engine, validator, agent log, case drawer) and **M4 built** (live call: text
+chat and Gemini Live voice). Next up: verify real Gemini + Live with the project key, then M5.
 
 ## Quickstart (local, no cloud account or API key needed)
 

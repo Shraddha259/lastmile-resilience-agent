@@ -34,16 +34,16 @@ Legend: ✅ done · 🔜 next · ⬜ open
 | 3.7 | VERIFY free-tier model IDs; set defaults in `.env.example`                                                                                          | D-019 | `config.py`                                                                                  | `/api/health` lists working models                                               |       |
 | 3.8 | Run `scripts/check_models.py` + `RUN_LIVE=1 pytest tests/live` with the deployed key; switch Cloud Run to `GENAI_MODE=real`, `FORCE_FALLBACK=false` | HC-1  | Cloud Run env                                                                                | `/api/health` `ai.llm_ok` > 0 and console badge shows "Gemini live"              |       |
 
-## M4 — Live voice (Fri 16 PM, gate 15:00) ⬜
+## M4 — Live voice (Fri 16 PM, gate 15:00) — 4.1–4.6 built on `feat/live-call`; voice untested without a key
 
-| #   | Task                                                                      | IDs        | Files                                         | Done when                       | Owner |
-| --- | ------------------------------------------------------------------------- | ---------- | --------------------------------------------- | ------------------------------- | ----- |
-| 4.1 | API-8 voice session tokens (one-time, 10 min)                             | §11.2      | `api/voice.py`                                | 409 unless live + RINGING       |       |
-| 4.2 | Live bridge WS ⇄ Gemini Live (VERIFY SDK), live tools, agent speaks first | FR-15, §13 | `voice/live_bridge.py`, `voice/live_tools.py` | AC-8 manual                     |       |
-| 4.3 | Text fallback (`LIVE_MODE=text`)                                          | §11.3      | `voice/live_bridge.py`                        | typed chat completes a check-in |       |
-| 4.4 | Resident page: ringing, answer, captions, hang up                         | FR-42      | `pages/Resident.tsx`                          | AC-9                            |       |
-| 4.5 | Audio worklet + recorder/player (16 kHz in, 24 kHz out)                   | §16.7      | `public/audio-worklet.js`, `src/audio/`       | vitest for conversions          |       |
-| 4.6 | Kill switch closes live sessions within 2 s                               | AC-5       | `scenario.on_stop` hook                       | AC-5                            |       |
+| #   | Task                                                                                                                | IDs        | Files                                         | Done when                       | Owner |
+| --- | ------------------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | ------------------------------- | ----- |
+| 4.1 | ✅ API-8 voice session tokens (one-time, 10 min)                                                                    | §11.2      | `api/voice.py`                                | 409 unless live + RINGING       |       |
+| 4.2 | 🟡 built, VERIFY with a real Live model — Live bridge WS ⇄ Gemini Live (VERIFY SDK), live tools, agent speaks first | FR-15, §13 | `voice/live_bridge.py`, `voice/live_tools.py` | AC-8 manual                     |       |
+| 4.3 | ✅ Text fallback (`LIVE_MODE=text`)                                                                                 | §11.3      | `voice/live_bridge.py`                        | typed chat completes a check-in |       |
+| 4.4 | ✅ Resident page: ringing, answer, captions, hang up                                                                | FR-42      | `pages/Resident.tsx`                          | AC-9                            |       |
+| 4.5 | ✅ Audio worklet + recorder/player (16 kHz in, 24 kHz out)                                                          | §16.7      | `public/audio-worklet.js`, `src/audio/`       | vitest for conversions          |       |
+| 4.6 | ✅ Kill switch closes live sessions within 2 s                                                                      | AC-5       | `scenario.on_stop` hook                       | AC-5                            |       |
 
 ## M5 — Human loop (Sat 17 AM) ⬜
 

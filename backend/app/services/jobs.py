@@ -118,17 +118,36 @@ async def complete_checkin(
     fake_classification: dict[str, Any] | None,
     answered: bool = True,
     end_reason: EndReason = EndReason.agent_end_call,
+    force_review: bool = False,
 ) -> None:
-    """Post-call pipeline (§11.3, §14.3): classify, apply final status, emit the event."""
+    """Post-call pipeline (§11.3, §14.3): classify, apply final status, emit the event.
+
+    No resident speech -> NO_ANSWER; a call that failed before any speech is FAILED (FR-16).
+    `force_review` is the live agent's needs_human flag (§13.3).
+    """
     if not answered or not classifier.has_resident_speech(transcript):
+        failed = end_reason == EndReason.error
+        reason = EndReason.ring_timeout if end_reason == EndReason.agent_end_call else end_reason
         await simulator.write_checkin_end(
-            inc, rid, attempt, CheckinState.NO_ANSWER, EndReason.ring_timeout, transcript=transcript
+            inc,
+            rid,
+            attempt,
+            CheckinState.FAILED if failed else CheckinState.NO_ANSWER,
+            reason,
+            transcript=transcript,
         )
-        await transition_case(inc, rid, CaseStatus.NO_ANSWER, SYS, "No answer")
-        emit(inc, EventType.CHECKIN_COMPLETED, rid, state="NO_ANSWER")
+        await transition_case(
+            inc,
+            rid,
+            CaseStatus.NO_ANSWER,
+            SYS,
+            "Call failed before any speech" if failed else "No answer",
+        )
+        emit(inc, EventType.CHECKIN_COMPLETED, rid, state="FAILED" if failed else "NO_ANSWER")
         return
     cls, model = await classifier.classify(transcript, live_status, cached=fake_classification)
     final, review = classifier.final_status(cls, live_status, resident_spoke=True)
+    review = review or force_review
     cls_doc = cls.model_dump(mode="json") | {"requires_human_review": review}
     await simulator.write_checkin_end(
         inc,

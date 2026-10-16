@@ -63,6 +63,18 @@ def _get_client():
     return _client
 
 
+def get_live_client():
+    """Client for the Live API: AI Studio key when LIVE_USE_AI_STUDIO (D-001), else shared."""
+    from google import genai
+
+    s = get_settings()
+    if s.LIVE_USE_AI_STUDIO:
+        if not s.GEMINI_API_KEY:
+            raise UpstreamModelError("GEMINI_API_KEY is not set (live voice)")
+        return genai.Client(api_key=s.GEMINI_API_KEY.get_secret_value())
+    return _get_client()
+
+
 def _status_code(exc: Exception) -> int | None:
     return getattr(exc, "code", None) or getattr(exc, "status_code", None)
 
