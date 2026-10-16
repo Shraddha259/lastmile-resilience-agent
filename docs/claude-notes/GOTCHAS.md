@@ -15,3 +15,5 @@
 - 2026-10-16 — Auth emulator logs `securetoken ... 400` in the browser — stale anonymous token from an earlier emulator session; harmless, the app signs in again.
 - 2026-10-16 — React "destroy is not a function" / blank page — an expression-bodied `useEffect` returned `scrollIntoView()`, which newer Chrome makes a Promise; always use a block body.
 - 2026-10-16 — Emulator REST reads return nothing — add `Authorization: Bearer owner` to bypass rules when inspecting data with curl.
+- 2026-10-16 — With Auto-approve off, cases escalate as "No volunteer available" — every unapproved dispatch holds its volunteer (only 8); approve or reject quickly, or demo with Auto-approve on.
+- 2026-10-16 — Test setup fails with emulator `409 Conflict` on the wipe — a previous test's job still holds a transaction; `fresh_db` now waits for jobs and retries.

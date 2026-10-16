@@ -20,8 +20,9 @@ All data is synthetic. No real residents, names, phone numbers or addresses.
 
 ## Status
 
-Phase 1 MVP, milestones **M0–M2 done**, **M3 built** (decision engine, validator, agent log, case drawer) and **M4 built** (live call: text
-chat and Gemini Live voice). Next up: verify real Gemini + Live with the project key, then M5.
+Phase 1 MVP, milestones **M0–M2 done**, **M3 built** (decision engine, validator, agent log, case drawer) **M4 built** (live call: text
+chat and Gemini Live voice) and **M5 built** (approve/reject, overrides, SITREP). Next up: verify real Gemini +
+Live with the project key, deploy, then M6 (evals, metrics, deck, video).
 
 ## Quickstart (local, no cloud account or API key needed)
 

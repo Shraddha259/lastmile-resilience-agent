@@ -7,8 +7,11 @@ import { AiStatusBadge } from "../components/AiStatusBadge";
 import { CaseDrawer } from "../components/CaseDrawer";
 import { Footer } from "../components/Footer";
 import { MapView } from "../components/MapView";
+import { NokToasts } from "../components/NokToasts";
 import { SafeCounter } from "../components/SafeCounter";
+import { SitrepPanel } from "../components/SitrepPanel";
 import { StatusBoard } from "../components/StatusBoard";
+import { TaskQueue } from "../components/TaskQueue";
 import { usePasscode } from "../lib/passcode";
 import { fmtDuration, toDate } from "../lib/time";
 import { useCollection, useDoc } from "../lib/useFirestore";
@@ -23,7 +26,7 @@ function useNow(ms = 1000) {
   return now;
 }
 
-/** Coordinator console (PRD §16.3): header, map, counter, status board, agent log, case drawer. */
+/** Coordinator console (PRD §16.3): map, counter, task queue, SITREP, board, agent log, drawer. */
 export function Console() {
   const { incidentId = "" } = useParams();
   const navigate = useNavigate();
@@ -187,6 +190,8 @@ export function Console() {
           <SafeCounter
             counters={inc.counters ?? { total: 0, confirmed_safe: 0, escalated: 0, in_progress: 0 }}
           />
+          <TaskQueue incidentId={incidentId} residents={residents} onSelect={setSelected} />
+          <SitrepPanel incidentId={incidentId} />
           <section
             className="rounded-lg bg-white p-4 text-sm text-slate-700 shadow-sm"
             aria-label="Official alert"
@@ -215,6 +220,7 @@ export function Console() {
           />
         </div>
       </main>
+      <NokToasts events={events.data} />
       {selected && (
         <CaseDrawer
           incidentId={incidentId}

@@ -1,7 +1,9 @@
 import { where } from "firebase/firestore";
-import { X } from "lucide-react";
+import { ShieldCheck, Siren, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { ApiError, api } from "../api";
 import { ACTOR_LABEL, ACTOR_STYLE } from "../lib/ai";
+import { usePasscode } from "../lib/passcode";
 import { LANGUAGE_NAMES, statusLabel } from "../lib/status";
 import { fmtTime, toDate } from "../lib/time";
 import { useCollection, useDoc } from "../lib/useFirestore";
@@ -20,6 +22,82 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
       <dt className="text-xs uppercase text-slate-500">{label}</dt>
       <dd className="text-slate-900">{children}</dd>
     </div>
+  );
+}
+
+/** Coordinator override (PRD §16.3, US-4): confirm safe or escalate, note required. */
+function Override({
+  incidentId,
+  residentId,
+  status,
+}: {
+  incidentId: string;
+  residentId: string;
+  status?: string;
+}) {
+  const { passcode } = usePasscode();
+  const [note, setNote] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  const terminal = status === "CONFIRMED_SAFE" || status === "ESCALATED";
+
+  async function run(to: "CONFIRMED_SAFE" | "ESCALATED") {
+    setBusy(true);
+    setMsg(null);
+    try {
+      await api.overrideCase(passcode, incidentId, residentId, to, note.trim());
+      setNote("");
+      setMsg({ ok: true, text: to === "CONFIRMED_SAFE" ? "Marked confirmed safe." : "Escalated." });
+    } catch (err) {
+      setMsg({ ok: false, text: err instanceof ApiError ? err.message : "Could not reach the LastMile API" });
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  if (status === "CONFIRMED_SAFE") return null;
+  const ready = note.trim().length >= 5 && !!passcode && !busy;
+  return (
+    <section aria-label="Coordinator override" className="rounded border border-slate-300 p-3">
+      <h3 className="font-semibold">Coordinator override</h3>
+      <textarea
+        value={note}
+        onChange={(e) => setNote(e.target.value)}
+        rows={2}
+        aria-label="Override note"
+        placeholder="What did you confirm? (required, min 5 characters)"
+        className="mt-1 w-full rounded border px-2 py-1"
+      />
+      <div className="mt-2 flex flex-wrap gap-2">
+        <button
+          type="button"
+          disabled={!ready}
+          onClick={() => run("CONFIRMED_SAFE")}
+          className="inline-flex items-center gap-1 rounded bg-green-700 px-2 py-1 text-white disabled:opacity-50"
+        >
+          <ShieldCheck size={14} aria-hidden="true" /> Mark confirmed safe
+        </button>
+        {!terminal && (
+          <button
+            type="button"
+            disabled={!ready}
+            onClick={() => run("ESCALATED")}
+            className="inline-flex items-center gap-1 rounded bg-red-700 px-2 py-1 text-white disabled:opacity-50"
+          >
+            <Siren size={14} aria-hidden="true" /> Escalate
+          </button>
+        )}
+      </div>
+      {!passcode && <p className="mt-1 text-xs text-slate-600">Enter the passcode in the header to act.</p>}
+      {msg && (
+        <p
+          role={msg.ok ? "status" : "alert"}
+          className={`mt-1 text-sm ${msg.ok ? "text-green-800" : "text-red-700"}`}
+        >
+          {msg.text}
+        </p>
+      )}
+    </section>
   );
 }
 
@@ -150,6 +228,8 @@ export function CaseDrawer({ incidentId, residentId, resident, onClose }: Props)
             <p className="text-slate-700">{task.data.briefing_en}</p>
           </section>
         )}
+
+        <Override incidentId={incidentId} residentId={residentId} status={c?.status} />
 
         <section aria-label="Calls">
           <div className="flex items-center justify-between">

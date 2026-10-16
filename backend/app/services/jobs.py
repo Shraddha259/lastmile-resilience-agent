@@ -159,6 +159,11 @@ async def complete_checkin(
         classification=cls_doc,
         live_status=live_status.value if live_status else None,
     )
+    case = await db.get_doc(db.case_ref(inc, rid))
+    if not case or case["status"] != CaseStatus.CONTACTING:
+        # A coordinator override (or reset) happened during the call: keep their decision.
+        log.info("check-in result not applied", extra={"incident_id": inc, "resident_id": rid})
+        return
     await transition_case(
         inc,
         rid,

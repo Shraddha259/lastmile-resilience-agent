@@ -92,6 +92,9 @@ export function Landing() {
                 onChange={(e) => setAutoApprove(e.target.checked)}
               />
               Auto-approve volunteer dispatch
+              <span className="block text-xs text-slate-600">
+                Turn off to approve or reject each dispatch yourself in the console's Task queue.
+              </span>
             </label>
             {error && (
               <p role="alert" className="text-sm text-red-700">

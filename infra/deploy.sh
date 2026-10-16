@@ -66,8 +66,8 @@ setup() {
 
 backend() {
   local origins="${ALLOWED_ORIGINS:-https://${PROJECT}.web.app,https://${PROJECT}.firebaseapp.com}"
-  # Until M5 (approval UI) and M4 (live voice) ship: auto-approve dispatch so bot volunteers
-  # finish cases, and a short ring timeout so the two live residents don't wait 6+ minutes.
+  # AUTO_APPROVE_DISPATCH is only the default when a request doesn't say (the landing page
+  # toggle does); ring timeout kept short so judges don't wait long between call attempts.
   # M3: the Gemini decision engine is on (FORCE_FALLBACK=false); quota errors fall back to policy.
   local m2="AUTO_APPROVE_DISPATCH=true@FORCE_FALLBACK=${FORCE_FALLBACK:-false}@LIVE_RING_TIMEOUT_S=30"
   # --set-env-vars replaces every variable, so model settings live here (verify them first
