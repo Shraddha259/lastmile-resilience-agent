@@ -116,6 +116,8 @@ write_env_production() {
 frontend() {
   write_env_production
   (cd "$ROOT/frontend" && npm ci && npm run build)
+  # Firebase Hosting's public dir must sit inside the firebase.json directory.
+  rm -rf "$ROOT/infra/dist" && cp -R "$ROOT/frontend/dist" "$ROOT/infra/dist"
   (cd "$ROOT" && "${FIREBASE[@]}" deploy --config infra/firebase.json \
     --only hosting,firestore:rules,firestore:indexes)
 }
