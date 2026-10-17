@@ -113,3 +113,7 @@ async def fresh_db():
     yield client
     for inc in list(worker._tasks):
         worker.cancel_incident(inc)
+    # Running jobs (e.g. the dispatch queued when a call ends) are not cancelled; let them
+    # finish so the next test's emulator wipe doesn't hit open transactions (HTTP 409).
+    for inc in list(worker._tasks):
+        await worker.drain(inc, limit_s=10)
