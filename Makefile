@@ -2,7 +2,7 @@
 SHELL := /bin/bash
 EMU_ENV := FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 GCP_PROJECT_ID=demo-lastmile
 
-.PHONY: help setup env emulators seed api web dev test test-unit test-scenario lint fmt types seed-gen check-types
+.PHONY: help setup env emulators seed api web dev test test-unit test-scenario lint fmt types seed-gen check-types evals metrics
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-14s\033[0m %s\n", $$1, $$2}'
@@ -64,3 +64,9 @@ types: ## Regenerate frontend/src/types.gen.ts from backend/app/models.py
 check-types: ## Fail if types.gen.ts is out of date
 	@cd backend && uv run python scripts/export_types.py >/dev/null
 	@git diff --quiet -- frontend/src/types.gen.ts || (echo "types.gen.ts is stale: run 'make types' and commit" && exit 1)
+
+evals: ## M6 evals with real Gemini (needs GENAI_MODE=real + key in backend/.env); writes docs/EVAL_RESULTS.md
+	cd backend && uv run python tests/evals/run_evals.py --write
+
+metrics: ## Metrics for an incident (default: latest in the local emulator): make metrics INC=inc_...
+	cd backend && $(EMU_ENV) uv run python tests/evals/metrics.py $(if $(INC),$(INC),--latest) --write
