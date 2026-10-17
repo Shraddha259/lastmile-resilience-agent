@@ -55,15 +55,15 @@ Legend: ✅ done · 🔜 next · ⬜ open
 | 5.4 | ✅ Next-of-kin toast on console                               | §15.4 | console                                            | toast text matches §15.4                          |       |
 | 5.5 | ✅ AC-3 test (MEDICAL → ESCALATED < 2 s, before any LLM call) | AC-3  | `tests/scenario`                                   | passes                                            |       |
 
-## M6 — Prove it (Sat 17 PM, feature freeze 18:00) ⬜
+## M6 — Prove it (Sat 17 PM, feature freeze 18:00) — tooling ✅ on `feat/evals-metrics`; real runs pending
 
-| #   | Task                                                           | IDs        | Done when                     | Owner |
-| --- | -------------------------------------------------------------- | ---------- | ----------------------------- | ----- |
-| 6.1 | Classifier eval: 12 transcripts (zh/ms/ta/en) + `run_evals.py` | SM-2, SM-3 | `docs/EVAL_RESULTS.md` filled |       |
-| 6.2 | Guardrail eval: cases 1, 3, 4, 7, 9                            | SM-4       | 0 invented facts              |       |
-| 6.3 | `tests/evals/metrics.py` (SM-1..SM-6) + 3 full runs            | §18        | numbers in EVAL_RESULTS       |       |
-| 6.4 | Security pass (rules, CORS, rate limits, logs)                 | NFR-S*     | checklist in PR               |       |
-| 6.5 | Deck + rough video draft                                       | HC-4       | shared with team              |       |
+| #   | Task                                                                                                                   | IDs        | Done when                     | Owner |
+| --- | ---------------------------------------------------------------------------------------------------------------------- | ---------- | ----------------------------- | ----- |
+| 6.1 | ✅ data + runner (`make evals`); run with real Gemini — Classifier eval: 12 transcripts (zh/ms/ta/en) + `run_evals.py` | SM-2, SM-3 | `docs/EVAL_RESULTS.md` filled |       |
+| 6.2 | ✅ data + checks; run with real Gemini — Guardrail eval: cases 1, 3, 4, 7, 9                                           | SM-4       | 0 invented facts              |       |
+| 6.3 | ✅ `make metrics`; 3 deployed runs pending — `tests/evals/metrics.py` (SM-1..SM-6) + 3 full runs                       | §18        | numbers in EVAL_RESULTS       |       |
+| 6.4 | ✅ `docs/SECURITY_REVIEW.md` — Security pass (rules, CORS, rate limits, logs)                                          | NFR-S*     | checklist in PR               |       |
+| 6.5 | Deck + rough video draft                                                                                               | HC-4       | shared with team              |       |
 
 ## M7 — Ship (Sun 18) ⬜
 

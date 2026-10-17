@@ -150,12 +150,11 @@ flowchart TD
 
 ## Status and what's next
 
-|       | Status                                                                                                              |
-| ----- | ------------------------------------------------------------------------------------------------------------------- |
-| M0–M2 | Done and deployed (the deployed site still runs AI in fake mode)                                                    |
-| M3    | Built and tested locally (PR #5), not deployed                                                                      |
-| M4    | Built locally on `feat/live-call`; text chat tested; **voice needs a real-key test**                                |
-| M5    | Built locally on `feat/human-loop`; approve, reject, override, SITREP and pop-ups tested in the browser (fake mode) |
-| Next  | One real-key test of M3–M5 → deploy → **M6** (evals, metrics, deck, video) → **M7** submit, 18 Oct                  |
+| Milestone | Status                                                                                                                                      |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| M0–M2     | Done and deployed                                                                                                                           |
+| M3–M5     | Merged to `main`; backend redeployed in real-Gemini mode; frontend redeploy and the Actions deploy (Owner setup) pending                    |
+| M6        | Eval sets, eval runner (`make evals`), metrics (`make metrics`) and security review built on `feat/evals-metrics`; real-Gemini runs pending |
+| Next      | Deploy → `make evals` + 3 deployed runs → deck + video → **M7** submit, 18 Oct                                                              |
 
-_Last updated: 2026-10-16 (M5 built)._
+_Last updated: 2026-10-17 (M6 tooling built)._
