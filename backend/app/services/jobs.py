@@ -127,7 +127,7 @@ async def complete_checkin(
         await transition_case(inc, rid, CaseStatus.NO_ANSWER, SYS, "No answer")
         emit(inc, EventType.CHECKIN_COMPLETED, rid, state="NO_ANSWER")
         return
-    cls, model = await classifier.classify(transcript, live_status, fake=fake_classification)
+    cls, model = await classifier.classify(transcript, live_status, cached=fake_classification)
     final, review = classifier.final_status(cls, live_status, resident_spoke=True)
     cls_doc = cls.model_dump(mode="json") | {"requires_human_review": review}
     await simulator.write_checkin_end(

@@ -6,7 +6,7 @@ from typing import Any
 
 from app.agent.prompts import load_prompt
 from app.models import CaseStatus, Classification
-from app.services import genai
+from app.services import db, genai
 from app.util.errors import UpstreamModelError
 from app.util.logging import get_logger
 
@@ -38,9 +38,14 @@ def render_transcript(transcript: list[dict[str, Any]]) -> str:
 async def classify(
     transcript: list[dict[str, Any]],
     live_status: CaseStatus | None,
-    fake: dict[str, Any] | None = None,
+    cached: dict[str, Any] | None = None,
 ) -> tuple[Classification, str]:
-    """Run the classifier, retrying once. On double failure use the §14.3 fallback."""
+    """Run the classifier, retrying once.
+
+    `cached` is the pre-computed classification for a simulated dialogue: it is the scripted
+    output in fake mode, and the graceful fallback if the model is unavailable in real mode
+    (labelled model="cached", D-025). Live calls pass None and use the §14.3 fallback.
+    """
     prompt = load_prompt("classifier_user.md").format(
         transcript=render_transcript(transcript), live_status=live_status or "none"
     )
@@ -50,10 +55,13 @@ async def classify(
                 system=load_prompt("classifier.md"),
                 prompt=prompt,
                 schema=Classification,
-                fake=fake,
+                fake=cached,
             )
         except UpstreamModelError as exc:
             log.warning("classifier failed", extra={"error_code": exc.code})
+    if cached is not None:
+        db.STATS["classifier_cached"] += 1
+        return Classification.model_validate(cached), "cached"
     status = live_status or CaseStatus.NEEDS_HELP
     return Classification(
         status=status,

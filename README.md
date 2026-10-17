@@ -19,8 +19,8 @@ All data is synthetic. No real residents, names, phone numbers or addresses.
 
 ## Status
 
-Phase 1 MVP, milestones **M0–M2 done**. The full 40-resident loop runs locally on the deterministic fallback
-policy with the coordinator console v1. Next up: M3 (Gemini decision engine), M4 (live voice).
+Phase 1 MVP, milestones **M0–M2 done**, **M3 in progress** (decision engine, validator, agent log, case drawer).
+Next up: real Gemini on the deployed service, then M4 (live voice).
 
 ## Quickstart (local, no cloud account or API key needed)
 
@@ -108,8 +108,8 @@ export SERVICE=lastmile-api
    gcloud run services describe $SERVICE --region $REGION --project $PROJECT --format='value(status.url)'
    ```
    `PROJECT=$PROJECT ./infra/deploy.sh status` also prints the API and site URLs plus a health check.
-8. **Set the Gemini model and rate** (free-tier limits are low and model availability changes, so re-apply after a
-   source deploy and verify the models first, see "Gemini troubleshooting" below):
+8. **Set the Gemini model and rate.** `deploy.sh backend` now sets them on every deploy (override with
+   `GEMINI_AGENT_MODEL=... GEMINI_FALLBACK_MODEL=... GEMINI_RPM=...`); to change them without redeploying:
    ```bash
    gcloud run services update $SERVICE --region $REGION --project $PROJECT \
      --update-env-vars GEMINI_RPM=4,GEMINI_AGENT_MODEL=gemini-2.5-flash-lite,GEMINI_FALLBACK_MODEL=gemini-3.5-flash-lite
@@ -126,6 +126,41 @@ export SERVICE=lastmile-api
     ```
 11. **Try it.** Open `https://$PROJECT.web.app`, enter the passcode, start the scenario. Residents should move from
     Waiting to Done / Help on the way / Human needed. Press **Reset** afterwards.
+
+### Deploy from GitHub Actions (manual)
+
+`.github/workflows/deploy.yml` deploys on demand: **Actions → deploy → Run workflow** (only from `main`; it runs
+lint and tests first, then `infra/deploy.sh backend|frontend|status`). It uses **Workload Identity Federation**, so
+no Google key is stored in GitHub. One-time setup by a project owner (VERIFY flags with `--help`):
+
+```bash
+export REPO=Shraddha259/lastmile-resilience-agent
+export PROJECT_NUMBER=$(gcloud projects describe $PROJECT --format='value(projectNumber)')
+gcloud iam service-accounts create lastmile-deploy --project $PROJECT
+gcloud iam workload-identity-pools create github --location=global --project $PROJECT
+gcloud iam workload-identity-pools providers create-oidc github --location=global \
+  --workload-identity-pool=github --issuer-uri=https://token.actions.githubusercontent.com \
+  --attribute-mapping=google.subject=assertion.sub,attribute.repository=assertion.repository \
+  --attribute-condition="assertion.repository=='$REPO'" --project $PROJECT
+gcloud iam service-accounts add-iam-policy-binding lastmile-deploy@$PROJECT.iam.gserviceaccount.com \
+  --role=roles/iam.workloadIdentityUser --project $PROJECT \
+  --member="principalSet://iam.googleapis.com/projects/$PROJECT_NUMBER/locations/global/workloadIdentityPools/github/attribute.repository/$REPO"
+for r in roles/run.admin roles/cloudbuild.builds.editor roles/artifactregistry.writer roles/storage.admin \
+         roles/firebasehosting.admin roles/firebaserules.admin roles/datastore.indexAdmin roles/firebase.viewer \
+         roles/serviceusage.serviceUsageConsumer; do
+  gcloud projects add-iam-policy-binding $PROJECT --role=$r --condition=None \
+    --member=serviceAccount:lastmile-deploy@$PROJECT.iam.gserviceaccount.com >/dev/null
+done
+gcloud iam service-accounts add-iam-policy-binding lastmile-run@$PROJECT.iam.gserviceaccount.com \
+  --role=roles/iam.serviceAccountUser --project $PROJECT \
+  --member=serviceAccount:lastmile-deploy@$PROJECT.iam.gserviceaccount.com
+```
+
+Then in GitHub **Settings → Secrets and variables → Actions → Variables** add (these are not secrets):
+`GCP_PROJECT_ID`, `GCP_WIF_PROVIDER` (`projects/<PROJECT_NUMBER>/locations/global/workloadIdentityPools/github/providers/github`),
+`GCP_DEPLOY_SA` (`lastmile-deploy@<PROJECT>.iam.gserviceaccount.com`), and optionally `GEMINI_AGENT_MODEL`,
+`GEMINI_FALLBACK_MODEL`, `GEMINI_RPM` (verify models first with `backend/scripts/check_models.py`). Create an
+environment named `production` (add required reviewers there to approve each deploy).
 
 ### Operations
 

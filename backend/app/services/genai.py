@@ -42,6 +42,8 @@ class _RateLimiter:
 
 _limiter = _RateLimiter()
 _client = None
+# Last model error, reported by /api/health so the team can see why AI fell back.
+last_error: dict[str, Any] = {}
 
 
 def _get_client():
@@ -105,14 +107,20 @@ async def generate_json[T: BaseModel](
                 ),
             )
             data = resp.parsed if isinstance(resp.parsed, schema) else json.loads(resp.text)
-            return schema.model_validate(data), current
+            result = schema.model_validate(data)
+            db.STATS["llm_ok"] += 1
+            return result, current
         except (ValidationError, json.JSONDecodeError) as exc:
+            db.STATS["llm_errors"] += 1
+            last_error.update(model=current, code="INVALID_JSON", at=time.time())
             raise UpstreamModelError(f"Invalid JSON from model: {exc}") from exc
         except UpstreamModelError:
             raise
         except Exception as exc:  # SDK errors carry an HTTP code
             code = _status_code(exc)
             attempt += 1
+            db.STATS["llm_errors"] += 1
+            last_error.update(model=current, code=code, at=time.time())
             log.warning("genai error", extra={"model": current, "error_code": code})
             if code == 429:
                 await asyncio.sleep(min(30, 2**attempt))
