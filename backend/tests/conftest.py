@@ -18,8 +18,10 @@ os.environ.update(
 )
 
 import asyncio  # noqa: E402
+import contextlib  # noqa: E402
 import json  # noqa: E402
 import socket  # noqa: E402
+import urllib.error  # noqa: E402
 import urllib.request  # noqa: E402
 from pathlib import Path  # noqa: E402
 
@@ -35,6 +37,10 @@ def _emulator_up() -> bool:
             return True
     except OSError:
         return False
+
+
+def _wipe(url: str) -> None:
+    urllib.request.urlopen(urllib.request.Request(url, method="DELETE")).close()
 
 
 def load_seed(name: str):
@@ -68,12 +74,22 @@ async def fresh_db():
         pytest.skip("Firestore emulator not running (make emulators)")
     from app.services import db, worker
 
+    # Let background jobs from the previous test finish: the emulator refuses to wipe
+    # (409 Conflict) while one of them holds a transaction.
+    for inc in list(worker._tasks):
+        worker.cancel_incident(inc)
+    with contextlib.suppress(TimeoutError):
+        await worker.drain(limit_s=5)
     host = os.environ["FIRESTORE_EMULATOR_HOST"]
-    req = urllib.request.Request(
-        f"http://{host}/emulator/v1/projects/demo-lastmile/databases/(default)/documents",
-        method="DELETE",
-    )
-    await asyncio.to_thread(lambda: urllib.request.urlopen(req).close())
+    url = f"http://{host}/emulator/v1/projects/demo-lastmile/databases/(default)/documents"
+    for attempt in range(10):
+        try:
+            await asyncio.to_thread(_wipe, url)
+            break
+        except urllib.error.HTTPError as exc:
+            if exc.code != 409 or attempt == 9:
+                raise
+            await asyncio.sleep(0.3)
     worker.reset_state()
     db.STATS.clear()
     items = []

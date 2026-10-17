@@ -36,6 +36,26 @@ export const api = {
     post<{ status: string }>(`/api/incidents/${incidentId}/stop`, passcode, { reason }),
   reset: (passcode: string, incidentId: string) =>
     post<{ status: string }>(`/api/incidents/${incidentId}/reset`, passcode),
+  decideTask: (
+    passcode: string,
+    incidentId: string,
+    taskId: string,
+    decision: "APPROVE" | "REJECT",
+    note = "",
+  ) => post<unknown>(`/api/incidents/${incidentId}/tasks/${taskId}/decision`, passcode, { decision, note }),
+  overrideCase: (
+    passcode: string,
+    incidentId: string,
+    residentId: string,
+    toStatus: "CONFIRMED_SAFE" | "ESCALATED",
+    note: string,
+  ) =>
+    post<unknown>(`/api/incidents/${incidentId}/cases/${residentId}/override`, passcode, {
+      to_status: toStatus,
+      note,
+    }),
+  requestSitrep: (passcode: string, incidentId: string) =>
+    post<{ queued: boolean }>(`/api/incidents/${incidentId}/sitrep`, passcode),
   createVoiceSession: (passcode: string, incidentId: string, residentId: string) =>
     post<VoiceSession>("/api/voice/sessions", passcode, {
       incident_id: incidentId,

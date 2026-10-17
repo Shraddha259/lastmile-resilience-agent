@@ -45,15 +45,15 @@ Legend: ✅ done · 🔜 next · ⬜ open
 | 4.5 | ✅ Audio worklet + recorder/player (16 kHz in, 24 kHz out)                                                          | §16.7      | `public/audio-worklet.js`, `src/audio/`       | vitest for conversions          |       |
 | 4.6 | ✅ Kill switch closes live sessions within 2 s                                                                      | AC-5       | `scenario.on_stop` hook                       | AC-5                            |       |
 
-## M5 — Human loop (Sat 17 AM) ⬜
+## M5 — Human loop (Sat 17 AM) — ✅ built on `feat/human-loop` (fake mode)
 
-| #   | Task                                                       | IDs   | Files                                              | Done when                                         | Owner |
-| --- | ---------------------------------------------------------- | ----- | -------------------------------------------------- | ------------------------------------------------- | ----- |
-| 5.1 | API-5 approve/reject + TaskQueue cards                     | US-3  | `api/coordinator.py`, `components/TaskQueue.tsx`   | approve starts the bot; reject releases volunteer |       |
-| 5.2 | API-6 overrides with note (≥5 chars)                       | US-4  | `api/coordinator.py`, CaseDrawer                   | coordinator can confirm/escalate                  |       |
-| 5.3 | API-7 SITREP (grounded snapshot, IDs not names)            | FR-25 | `services/sitrep.py`, `components/SitrepPanel.tsx` | shows "as of" time                                |       |
-| 5.4 | Next-of-kin toast on console                               | §15.4 | console                                            | toast text matches §15.4                          |       |
-| 5.5 | AC-3 test (MEDICAL → ESCALATED < 2 s, before any LLM call) | AC-3  | `tests/scenario`                                   | passes                                            |       |
+| #   | Task                                                          | IDs   | Files                                              | Done when                                         | Owner |
+| --- | ------------------------------------------------------------- | ----- | -------------------------------------------------- | ------------------------------------------------- | ----- |
+| 5.1 | ✅ API-5 approve/reject + TaskQueue cards                     | US-3  | `api/coordinator.py`, `components/TaskQueue.tsx`   | approve starts the bot; reject releases volunteer |       |
+| 5.2 | ✅ API-6 overrides with note (≥5 chars)                       | US-4  | `api/coordinator.py`, CaseDrawer                   | coordinator can confirm/escalate                  |       |
+| 5.3 | ✅ API-7 SITREP (grounded snapshot, IDs not names)            | FR-25 | `services/sitrep.py`, `components/SitrepPanel.tsx` | shows "as of" time                                |       |
+| 5.4 | ✅ Next-of-kin toast on console                               | §15.4 | console                                            | toast text matches §15.4                          |       |
+| 5.5 | ✅ AC-3 test (MEDICAL → ESCALATED < 2 s, before any LLM call) | AC-3  | `tests/scenario`                                   | passes                                            |       |
 
 ## M6 — Prove it (Sat 17 PM, feature freeze 18:00) ⬜
 

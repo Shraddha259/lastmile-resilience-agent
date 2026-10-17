@@ -12,9 +12,9 @@ from slowapi import Limiter
 from slowapi.errors import RateLimitExceeded
 from slowapi.middleware import SlowAPIMiddleware
 
-from app.api import health, scenarios, voice
+from app.api import coordinator, health, scenarios, voice
 from app.config import get_settings
-from app.services import jobs, scenario  # noqa: F401 - jobs registers worker handlers
+from app.services import jobs, scenario, sitrep  # noqa: F401 - register worker handlers
 from app.sim import volunteer_bot  # noqa: F401 - registers the bot job
 from app.util.errors import AppError
 from app.util.logging import get_logger, setup_logging
@@ -91,6 +91,7 @@ def create_app() -> FastAPI:
 
     app.include_router(health.router)
     app.include_router(scenarios.router)
+    app.include_router(coordinator.router)
     app.include_router(voice.router)
     app.include_router(voice.ws_router)
     return app

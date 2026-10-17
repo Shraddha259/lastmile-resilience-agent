@@ -36,18 +36,31 @@ works out what they need, and keeps going until every person is confirmed safe o
    Centre (wheelchair accessible, medical support), then send volunteer V-6 who speaks Mandarin."_ Code
    checks each step: is it allowed, does that shelter exist and have space, is the volunteer free? Anything
    wrong is **blocked**, and the built-in rules take over.
-6. **Help arrives.** The volunteer accepts, picks her up, arrives at the shelter and hands over. Her case
+6. **The coordinator approves (M5).** The proposed dispatch appears in the console's **Task queue**: _"Mdm Tan,
+   82, walker, speaks Mandarin. Escort to Civic Care Centre. Volunteer V-6."_ The coordinator clicks
+   **Approve**, or **Reject** with a reason such as _"Road to Civic Care is flooded"_, which frees the
+   volunteer and hands the case to a person. With **Auto-approve** on, this step is skipped.
+7. **Help arrives.** The volunteer accepts, picks her up, arrives at the shelter and hands over. Her case
    becomes **Confirmed safe**. (Volunteers are bots in Phase 1.)
-7. **Other people, other paths.**
+8. **Other people, other paths.**
    - _Mr Lee says "I'm fine, upstairs with my son"_ → confirmed safe straight away.
    - _Mdm Ong says "my husband fell and can't get up"_ → **medical**: handed to a human immediately,
      before any AI decision.
    - _Nobody answers Mr Goh_ → retry, retry again, then message his son (simulated), then send a volunteer
      for a welfare check.
+     A pop-up tells the coordinator: _"R-017: Message sent to daughter (+60 1X-XXX 9565) — simulated"_.
    - _A confused answer_ → handed to a human for review.
-8. **The coordinator watches it all live:** map, counter ("36 / 40 confirmed safe"), status table, agent log
-   with a reason for every action, and case details with transcripts. **STOP ALL CALLS** ends everything
-   in under 2 seconds.
+9. **The coordinator stays in charge (M5).**
+   - **Override:** _the coordinator phones Mdm Ong's son, who says the ambulance took her husband and she is
+     with a neighbour._ They open her case, write that note, and click **Mark confirmed safe**. A note is
+     always required, and it goes into the audit trail.
+   - **Situation report:** one click on **Generate SITREP** gives a short briefing written from real system
+     data only, for example _"26/40 confirmed safe, 5 escalated. Urgent: R-008, R-012… Resources: S-3 3/10;
+     1 volunteer available. Next 10 minutes: review 5 escalations; approve 7 dispatches."_ Code checks that
+     every ID in it really exists; otherwise a rule-based report is shown instead.
+10. **The coordinator watches it all live:** map, counter ("36 / 40 confirmed safe"), task queue, situation
+    report, status table, agent log with a reason for every action, and case details with transcripts.
+    **STOP ALL CALLS** ends everything in under 2 seconds.
 
 **End state of a typical run:** about 36 confirmed safe, 4 handed to a human, **nobody stuck**.
 
@@ -86,13 +99,19 @@ flowchart TD
     M --> S3[Retry call → message family → welfare check]
     M --> HUM
 
-    S2 --> V[Volunteer: accept → pick up → arrive → hand over]
-    S3 --> V
+    S2 --> AP{Auto-approve?}
+    S3 --> AP
+    AP -- on --> V
+    AP -- off --> TQ[Task queue: coordinator<br/>Approve / Reject with reason]
+    TQ -- approve --> V[Volunteer: accept → pick up → arrive → hand over]
+    TQ -- reject --> HUM
     V --> DONE[Confirmed safe]
     S1 --> DONE
 
-    DONE --> CON[(Coordinator console<br/>map · counter · agent log · case details)]
+    DONE --> CON[(Coordinator console<br/>map · counter · task queue · SITREP · agent log · case details)]
     HUM --> CON
+    CON -- override with note --> DONE
+    CON -- Generate SITREP --> SR[Gemini briefing from real data<br/>IDs checked by code]
     KILL[STOP ALL CALLS] -. ends calls &lt; 2 s .-> CON
 ```
 
@@ -100,13 +119,14 @@ flowchart TD
 
 ## What each milestone added
 
-| Milestone            | In simple terms                                                                                                    | Real-life value                                                                             |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
-| **M0 Foundations**   | Project set up: data model, 40 synthetic residents, 3 shelters, 8 volunteers, local database, team docs, CI checks | Anyone on the team can run it in 5 minutes with no cloud account or key                     |
-| **M1 Core rules**    | The "rule book": allowed status changes, risk scoring, shelter and volunteer matching                              | Nobody can be marked safe by mistake; wheelchair users never go to a shelter without access |
-| **M2 The full loop** | Queue → calls → classify → rules decide → volunteers → confirmed safe, plus the live console and kill switch       | The system works end to end even with **no AI at all**                                      |
-| **M3 AI decisions**  | Gemini proposes each next step with a reason; code validates it; agent log, case details, AI badge                 | Decisions are explainable, and AI mistakes are caught before they affect a person           |
-| **M4 Live call**     | A real conversation: the phone rings, a person answers, and the AI talks in their language (voice or typed chat)   | The key demo moment: talk to the AI as a resident and watch the system react                |
+| Milestone                | In simple terms                                                                                                              | Real-life value                                                                             |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| **M0 Foundations**       | Project set up: data model, 40 synthetic residents, 3 shelters, 8 volunteers, local database, team docs, CI checks           | Anyone on the team can run it in 5 minutes with no cloud account or key                     |
+| **M1 Core rules**        | The "rule book": allowed status changes, risk scoring, shelter and volunteer matching                                        | Nobody can be marked safe by mistake; wheelchair users never go to a shelter without access |
+| **M2 The full loop**     | Queue → calls → classify → rules decide → volunteers → confirmed safe, plus the live console and kill switch                 | The system works end to end even with **no AI at all**                                      |
+| **M3 AI decisions**      | Gemini proposes each next step with a reason; code validates it; agent log, case details, AI badge                           | Decisions are explainable, and AI mistakes are caught before they affect a person           |
+| **M4 Live call**         | A real conversation: the phone rings, a person answers, and the AI talks in their language (voice or typed chat)             | The key demo moment: talk to the AI as a resident and watch the system react                |
+| **M5 Human in the loop** | Coordinator approves or rejects dispatches, overrides any case with a note, gets an AI situation report; next-of-kin pop-ups | People, not AI, have the final say; every human decision is recorded                        |
 
 ## Safety rules that always hold
 
@@ -115,6 +135,8 @@ flowchart TD
 - **Nobody gets stuck:** if the AI fails, times out or runs out of quota, the built-in rules finish the case.
 - **The AI says it's automated** in its first sentence, and never gives medical advice or invents facts.
 - **Kill switch** ends every call in under 2 seconds.
+- **Humans can always overrule:** approve or reject any dispatch, and override any case, always with a note.
+- **Reports only use real data:** situation reports that mention an unknown resident, shelter or volunteer are replaced.
 - **Synthetic data only.** Simulated items are always labelled; phone numbers are masked.
 
 ## Where things run
@@ -128,11 +150,12 @@ flowchart TD
 
 ## Status and what's next
 
-|       | Status                                                                                                                                                                                |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| M0–M2 | Done and deployed (the deployed site still runs AI in fake mode)                                                                                                                      |
-| M3    | Built and tested locally (PR #5), not deployed                                                                                                                                        |
-| M4    | Built locally on `feat/live-call`; text chat tested; **voice needs a real-key test**                                                                                                  |
-| Next  | One real-key test of M3 + M4 → deploy → **M5** (approve/reject volunteers, coordinator overrides, AI situation report) → **M6** (evals, metrics, deck, video) → **M7** submit, 18 Oct |
+|       | Status                                                                                                              |
+| ----- | ------------------------------------------------------------------------------------------------------------------- |
+| M0–M2 | Done and deployed (the deployed site still runs AI in fake mode)                                                    |
+| M3    | Built and tested locally (PR #5), not deployed                                                                      |
+| M4    | Built locally on `feat/live-call`; text chat tested; **voice needs a real-key test**                                |
+| M5    | Built locally on `feat/human-loop`; approve, reject, override, SITREP and pop-ups tested in the browser (fake mode) |
+| Next  | One real-key test of M3–M5 → deploy → **M6** (evals, metrics, deck, video) → **M7** submit, 18 Oct                  |
 
-_Last updated: 2026-10-16 (M4 built)._
+_Last updated: 2026-10-16 (M5 built)._
