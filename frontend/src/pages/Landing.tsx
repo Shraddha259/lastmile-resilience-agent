@@ -52,9 +52,13 @@ export function Landing() {
             <li>
               Enter the demo passcode and press <strong>Run Flood Scenario</strong>.
             </li>
-            <li>Watch 40 synthetic residents move from waiting to confirmed safe on the console.</li>
             <li>
-              Open a live resident in a new tab and answer the call (live calls arrive in a later build).
+              Watch 40 synthetic residents move from waiting to confirmed safe. The agent log shows each
+              Gemini decision and its reason.
+            </li>
+            <li>
+              Open a live resident below (Mr Lim speaks English), wait for the incoming call, press{" "}
+              <strong>Answer</strong> and talk. Headphones work best.
             </li>
             <li>
               Use <strong>STOP ALL CALLS</strong> (kill switch) and <strong>Reset</strong> when you are done.

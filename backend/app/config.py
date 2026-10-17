@@ -23,9 +23,10 @@ class Settings(BaseSettings):
     VERTEX_LOCATION: str = "global"
     GEMINI_API_KEY: SecretStr | None = None
     LIVE_USE_AI_STUDIO: bool = True
-    # PRD §7 defaults. VERIFY each is available on the Gemini API free tier.
-    GEMINI_AGENT_MODEL: str = "gemini-3.7-flash"
-    GEMINI_FALLBACK_MODEL: str = "gemini-2.5-flash"
+    # Verified on the project key 2026-10-17 (D-044): 3.5-flash-lite answers; 2.5-flash-lite
+    # works but its free daily quota runs out first, so it is the fallback (own quota).
+    GEMINI_AGENT_MODEL: str = "gemini-3.5-flash-lite"
+    GEMINI_FALLBACK_MODEL: str = "gemini-2.5-flash-lite"
     GEMINI_LIVE_MODEL: str = "gemini-3.1-flash-live-preview"
     GEMINI_TTS_MODEL: str = "gemini-3.1-flash-tts-preview"
     GEMINI_RPM: int = 10
@@ -46,7 +47,9 @@ class Settings(BaseSettings):
     RETRY_DELAY_S: float = 120
     LIVE_RING_TIMEOUT_S: float = 120
     LIVE_MAX_CALL_S: float = 150
-    AGENT_TIMEOUT_S: float = 20
+    # PRD §7 says 20 s; decisions queue behind classifier calls under GEMINI_RPM, so 20 s
+    # timed out almost every decision on the deployed run (D-044).
+    AGENT_TIMEOUT_S: float = 60
     AUTO_APPROVE_DISPATCH: bool = False
     SAFE_CONFIDENCE_MIN: float = 0.80
     SITREP_INTERVAL_S: float = 120

@@ -7,22 +7,45 @@ coordinator) until every person is **confirmed safe** or **handed to a human**.
 Built for the Google Cloud AI Builder Cup 2026 (theme: Sustainability & Social Impact).
 All data is synthetic. No real residents, names, phone numbers or addresses.
 
-|                         |                                                     |
-| ----------------------- | --------------------------------------------------- |
-| Spec                    | [docs/PRD.md](docs/PRD.md) (single source of truth) |
-| How it works (simple)   | [docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md)        |
-| Architecture            | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)        |
-| Work board              | [docs/BACKLOG.md](docs/BACKLOG.md)                  |
-| How to contribute       | [CONTRIBUTING.md](CONTRIBUTING.md)                  |
-| Design decisions        | [docs/DECISIONS.md](docs/DECISIONS.md)              |
-| Free-tier budget        | [docs/COSTS.md](docs/COSTS.md)                      |
-| Demo URL / video / deck | _added at M7_                                       |
+|                       |                                                     |
+| --------------------- | --------------------------------------------------- |
+| Spec                  | [docs/PRD.md](docs/PRD.md) (single source of truth) |
+| How it works (simple) | [docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md)        |
+| Architecture          | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)        |
+| Work board            | [docs/BACKLOG.md](docs/BACKLOG.md)                  |
+| How to contribute     | [CONTRIBUTING.md](CONTRIBUTING.md)                  |
+| Design decisions      | [docs/DECISIONS.md](docs/DECISIONS.md)              |
+| Free-tier budget      | [docs/COSTS.md](docs/COSTS.md)                      |
+| **Live demo**         | <https://lastmile-resilience-agent.web.app>         |
+| Demo video            | _TODO: link before submission_                      |
+| Pitch deck (PDF)      | _TODO: link before submission_                      |
+| Evaluation results    | [docs/EVAL_RESULTS.md](docs/EVAL_RESULTS.md)        |
+
+## Try the demo (judges)
+
+The demo passcode is in the submission notes. It is not published here.
+
+1. Open <https://lastmile-resilience-agent.web.app>, enter the passcode and press **Run Flood Scenario**. The first
+   load can take a few seconds while the backend starts.
+2. Watch 40 synthetic residents get ranked, called and helped. The **agent log** shows each Gemini decision and its
+   reason, and the **AI badge** shows whether Gemini or the rule-based fallback is acting. Click any resident for
+   their transcript and timeline.
+3. On the landing page, open **Play Mr Lim (English, live)** in a new tab. When the call rings, press **Answer** and
+   talk (headphones work best). Try _"water is coming in and I can't walk well"_ or _"my wife fell"_.
+4. In the console, approve or reject a volunteer in the **Task queue**, override a case with a note, and press
+   **Generate SITREP**. Finish with **STOP ALL CALLS**, then **Reset**.
 
 ## Status
 
-Phase 1 MVP, milestones **M0–M2 done**, **M3 built** (decision engine, validator, agent log, case drawer) **M4 built** (live call: text
-chat and Gemini Live voice) and **M5 built** (approve/reject, overrides, SITREP). Next up: verify real Gemini +
-Live with the project key, deploy, then M6 (evals, metrics, deck, video).
+Phase 1 MVP: milestones **M0–M6 complete**:
+
+- **M0–M2:** risk ranking, call loop, rule-based policy, live console, kill switch
+- **M3:** Gemini decision engine with code validation, agent log, case details
+- **M4:** live calls (Gemini Live voice, typed-chat fallback)
+- **M5:** coordinator approvals, overrides, situation report
+- **M6:** evals, metrics, security review
+
+M7 (release) is in progress.
 
 ## Quickstart (local, no cloud account or API key needed)
 
