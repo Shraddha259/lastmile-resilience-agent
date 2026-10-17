@@ -150,11 +150,11 @@ flowchart TD
 
 ## Status and what's next
 
-| Milestone | Status                                                                                                                                      |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| M0–M2     | Done and deployed                                                                                                                           |
-| M3–M5     | Merged to `main`; backend redeployed in real-Gemini mode; frontend redeploy and the Actions deploy (Owner setup) pending                    |
-| M6        | Eval sets, eval runner (`make evals`), metrics (`make metrics`) and security review built on `feat/evals-metrics`; real-Gemini runs pending |
-| Next      | Deploy → `make evals` + 3 deployed runs → deck + video → **M7** submit, 18 Oct                                                              |
+| Milestone | Status                                                                                                                                                   |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| M0–M2     | Done and deployed                                                                                                                                        |
+| M3–M5     | Merged; backend live with real Gemini (`gemini-3.5-flash-lite`): classifier and decisions verified on a deployed run (17 Oct). Frontend redeploy pending |
+| M6        | Merged: eval sets, `make evals`, `make metrics`, security review. Real-Gemini eval run and 2–3 deployed runs pending                                     |
+| M7        | In progress: settings made permanent in `deploy.sh` (D-044), landing/README updated; frontend redeploy, video, deck, repo clean-up, tag, submit (18 Oct) |
 
-_Last updated: 2026-10-17 (M6 tooling built)._
+_Last updated: 2026-10-17 (M7 release prep)._

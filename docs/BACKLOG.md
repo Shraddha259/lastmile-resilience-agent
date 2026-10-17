@@ -65,12 +65,18 @@ Legend: ✅ done · 🔜 next · ⬜ open
 | 6.4 | ✅ `docs/SECURITY_REVIEW.md` — Security pass (rules, CORS, rate limits, logs)                                          | NFR-S*     | checklist in PR               |       |
 | 6.5 | Deck + rough video draft                                                                                               | HC-4       | shared with team              |       |
 
-## M7 — Ship (Sun 18) ⬜
+## M7 — Ship (Sun 18) — in progress
 
-| #   | Task                                                                           | Done when                     | Owner |
-| --- | ------------------------------------------------------------------------------ | ----------------------------- | ----- |
-| 7.1 | First real deploy (`infra/deploy.sh setup/backend/frontend`), budget alert set | public URL works logged out   |       |
-| 7.2 | README links, final video (< 3 min), deck PDF, tag `v1.0-submission`           | submitted hours before cutoff |       |
+| #   | Task                                                                                                                                                 | Done when                                  | Owner               |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ------------------- |
+| 7.1 | ✅ First real deploy, budget alert, real Gemini verified on a deployed run                                                                           | backend live with `gemini-3.5-flash-lite`  | Subhojit            |
+| 7.2 | ✅ Settings made permanent: default models + `AGENT_TIMEOUT_S` in `deploy.sh` / `deploy.yml` (D-044); landing "How to judge" + README "Try the demo" | merged                                     |                     |
+| 7.3 | Redeploy **frontend** from `main` (phone page, agent log, task queue, AI badge)                                                                      | live site shows the AI badge and agent log |                     |
+| 7.4 | `make evals` + 2–3 deployed runs → `metrics.py <incident> --write` → commit `EVAL_RESULTS.md`                                                        | numbers in the deck                        |                     |
+| 7.5 | Repo public (HC-4): first purge old PR #1 refs (or recreate the repo from `main`) so no work identity is exposed                                     | repo public, history clean                 | Shraddha / Subhojit |
+| 7.6 | Final video (< 3 min, + backup recording) and deck PDF; add links to README                                                                          | links open logged out                      |                     |
+| 7.7 | Clean redeploy from `main`, smoke test logged out, tag `v1.0-submission`, submit with the passcode in the submission notes                           | submitted hours before cutoff              |                     |
+| 7.8 | Freeze 19 Oct – 6 Nov: outages only, log any change in DECISIONS; watch budget and Gemini quota                                                      | —                                          |                     |
 
 **Cut order if late (PRD §22):** SITREP button → CaseDrawer polish → guardrail evals.
 **Never cut:** live call (voice or text), safe counter, MEDICAL escalation, kill switch, fallback policy.

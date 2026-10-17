@@ -65,6 +65,7 @@ jobs:
       GEMINI_AGENT_MODEL: ${{ vars.GEMINI_AGENT_MODEL }}
       GEMINI_FALLBACK_MODEL: ${{ vars.GEMINI_FALLBACK_MODEL }}
       GEMINI_RPM: ${{ vars.GEMINI_RPM }}
+      AGENT_TIMEOUT_S: ${{ vars.AGENT_TIMEOUT_S }}
     steps:
       - uses: actions/checkout@v4
       - name: Check repository variables
@@ -90,7 +91,9 @@ jobs:
       - name: Deploy backend (Cloud Run)
         if: inputs.target != 'frontend'
         run: |
-          for v in GEMINI_AGENT_MODEL GEMINI_FALLBACK_MODEL GEMINI_RPM GEMINI_LIVE_MODEL; do [[ -n "${!v}" ]] || unset "$v"; done
+          for v in GEMINI_AGENT_MODEL GEMINI_FALLBACK_MODEL GEMINI_RPM GEMINI_LIVE_MODEL AGENT_TIMEOUT_S; do
+            [[ -n "${!v}" ]] || unset "$v"
+          done
           gcloud config set project "$PROJECT"
           ./infra/deploy.sh backend
       - name: Deploy frontend (Firebase Hosting + Firestore rules)

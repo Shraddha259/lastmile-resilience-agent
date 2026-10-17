@@ -73,8 +73,10 @@ backend() {
   # --set-env-vars replaces every variable, so model settings live here (verify them first
   # with backend/scripts/check_models.py). Override any of these from the environment.
   local ai="GENAI_MODE=${GENAI_MODE:-real}@GEMINI_RPM=${GEMINI_RPM:-10}"
-  ai+="@GEMINI_AGENT_MODEL=${GEMINI_AGENT_MODEL:-gemini-2.5-flash-lite}"
-  ai+="@GEMINI_FALLBACK_MODEL=${GEMINI_FALLBACK_MODEL:-gemini-2.5-flash}"
+  ai+="@GEMINI_AGENT_MODEL=${GEMINI_AGENT_MODEL:-gemini-3.5-flash-lite}"
+  ai+="@GEMINI_FALLBACK_MODEL=${GEMINI_FALLBACK_MODEL:-gemini-2.5-flash-lite}"
+  # Decisions wait behind classifier calls in the GEMINI_RPM queue; 20 s timed out (D-044).
+  ai+="@AGENT_TIMEOUT_S=${AGENT_TIMEOUT_S:-60}"
   # M4 live calls: voice = Gemini Live audio; text = typed-chat fallback (§11.3).
   ai+="@LIVE_MODE=${LIVE_MODE:-voice}"
   [[ -n "${GEMINI_LIVE_MODEL:-}" ]] && ai+="@GEMINI_LIVE_MODEL=${GEMINI_LIVE_MODEL}"
