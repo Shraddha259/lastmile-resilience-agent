@@ -49,13 +49,14 @@ async def classify(
     prompt = load_prompt("classifier_user.md").format(
         transcript=render_transcript(transcript), live_status=live_status or "none"
     )
+    fake = cached if cached is not None else _fake_from_live(transcript, live_status)
     for _ in range(2):
         try:
             return await genai.generate_json(
                 system=load_prompt("classifier.md"),
                 prompt=prompt,
                 schema=Classification,
-                fake=cached,
+                fake=fake,
             )
         except UpstreamModelError as exc:
             log.warning("classifier failed", extra={"error_code": exc.code})
@@ -70,6 +71,21 @@ async def classify(
         review_reason="Classifier unavailable",
         summary_en="Classifier unavailable; needs review.",
     ), "fallback"
+
+
+def _fake_from_live(
+    transcript: list[dict[str, Any]], live_status: CaseStatus | None
+) -> dict[str, Any] | None:
+    """GENAI_MODE=fake only: agree with the live agent's record_status for live calls."""
+    if live_status is None:
+        return None
+    said = " ".join(t["text"] for t in transcript if t.get("role") == "resident")
+    return {
+        "status": live_status.value,
+        "confidence": 0.9,
+        "medical_flag": live_status == CaseStatus.MEDICAL,
+        "summary_en": f"Resident said: {said}"[:200],
+    }
 
 
 def final_status(

@@ -75,6 +75,9 @@ backend() {
   local ai="GENAI_MODE=${GENAI_MODE:-real}@GEMINI_RPM=${GEMINI_RPM:-10}"
   ai+="@GEMINI_AGENT_MODEL=${GEMINI_AGENT_MODEL:-gemini-2.5-flash-lite}"
   ai+="@GEMINI_FALLBACK_MODEL=${GEMINI_FALLBACK_MODEL:-gemini-2.5-flash}"
+  # M4 live calls: voice = Gemini Live audio; text = typed-chat fallback (§11.3).
+  ai+="@LIVE_MODE=${LIVE_MODE:-voice}"
+  [[ -n "${GEMINI_LIVE_MODEL:-}" ]] && ai+="@GEMINI_LIVE_MODEL=${GEMINI_LIVE_MODEL}"
   # Scale to zero between demos; max 1 instance so the in-process worker (PRD §5.3) sees
   # every job; CPU stays allocated while the instance lives (instance-based billing).
   gcloud run deploy "$SERVICE" --source "$ROOT/backend" --region "$REGION" \

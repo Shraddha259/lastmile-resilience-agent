@@ -36,4 +36,24 @@ export const api = {
     post<{ status: string }>(`/api/incidents/${incidentId}/stop`, passcode, { reason }),
   reset: (passcode: string, incidentId: string) =>
     post<{ status: string }>(`/api/incidents/${incidentId}/reset`, passcode),
+  createVoiceSession: (passcode: string, incidentId: string, residentId: string) =>
+    post<VoiceSession>("/api/voice/sessions", passcode, {
+      incident_id: incidentId,
+      resident_id: residentId,
+    }),
 };
+
+export type VoiceSession = {
+  token: string;
+  ws_url: string;
+  ws_path: string;
+  expires_at: string;
+  mode: "voice" | "text";
+};
+
+/** Absolute WebSocket URL for a voice session (VITE_WS_BASE_URL, else same host as the API). */
+export function voiceSocketUrl(session: VoiceSession): string {
+  if (/^wss?:\/\//.test(session.ws_url)) return session.ws_url;
+  const base = import.meta.env.VITE_WS_BASE_URL || BASE.replace(/^http/, "ws");
+  return `${base}${session.ws_path}`;
+}
