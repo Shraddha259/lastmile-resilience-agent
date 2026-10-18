@@ -9,6 +9,7 @@ Callers treat any raised UpstreamModelError as "model unavailable" and fall back
 from __future__ import annotations
 
 import asyncio
+import heapq
 import json
 import time
 from typing import Any, TypeVar
@@ -25,19 +26,53 @@ T = TypeVar("T", bound=BaseModel)
 
 
 class _RateLimiter:
-    """Spaces requests evenly to stay under GEMINI_RPM."""
+    """Spaces requests evenly to stay under GEMINI_RPM (D-047).
+
+    Slots are handed out one at a time by a single pump task, in order: priority requests
+    (a live caller waiting on the result) before normal ones, then first come first served.
+    A slot is only assigned when it is due, so a waiter cancelled while queued (for example a
+    decision hitting AGENT_TIMEOUT_S) never uses one up.
+    """
 
     def __init__(self) -> None:
-        self._lock = asyncio.Lock()
-        self._next = 0.0
+        self._waiters: list[tuple[int, int, asyncio.Future[None]]] = []
+        self._seq = 0
+        self._last = float("-inf")
+        self._interval = 0.0
+        self._pump: asyncio.Task[None] | None = None
 
-    async def wait(self, rpm: int) -> None:
-        async with self._lock:
-            now = time.monotonic()
-            delay = max(0.0, self._next - now)
-            self._next = max(now, self._next) + 60.0 / max(rpm, 1)
-        if delay:
-            await asyncio.sleep(delay)
+    async def wait(self, rpm: int, *, priority: bool = False) -> None:
+        loop = asyncio.get_running_loop()
+        self._interval = 60.0 / max(rpm, 1)
+        fut: asyncio.Future[None] = loop.create_future()
+        self._seq += 1
+        heapq.heappush(self._waiters, (0 if priority else 1, self._seq, fut))
+        if self._pump is None or self._pump.done() or self._pump.get_loop() is not loop:
+            # Waiters from an earlier event loop (tests) can never be resolved here.
+            self._waiters = [w for w in self._waiters if w[2].get_loop() is loop]
+            heapq.heapify(self._waiters)
+            self._pump = loop.create_task(self._run())
+        await fut  # cancelling this marks the future cancelled; the pump skips it
+
+    def _next_waiter(self) -> asyncio.Future[None] | None:
+        while self._waiters:
+            fut = self._waiters[0][2]
+            if not fut.done():
+                return fut
+            heapq.heappop(self._waiters)  # cancelled while queued: drop without a slot
+        return None
+
+    async def _run(self) -> None:
+        while self._next_waiter() is not None:
+            delay = self._last + self._interval - time.monotonic()
+            if delay > 0:
+                await asyncio.sleep(delay)
+            fut = self._next_waiter()  # re-read: a priority request may have arrived meanwhile
+            if fut is None:
+                break
+            heapq.heappop(self._waiters)
+            self._last = time.monotonic()
+            fut.set_result(None)
 
 
 _limiter = _RateLimiter()
@@ -86,10 +121,12 @@ async def generate_json[T: BaseModel](
     schema: type[T],
     fake: T | dict[str, Any] | None = None,
     model: str | None = None,
+    priority: bool = False,
 ) -> tuple[T, str]:
     """Return a structured response validated against `schema`, plus the model ID used.
 
     In fake mode `fake` is returned as-is (validated). Raises UpstreamModelError on failure.
+    `priority=True` (a live resident is waiting on the result) goes ahead of queued requests.
     """
     s = get_settings()
     if s.GENAI_MODE == "fake":
@@ -105,7 +142,7 @@ async def generate_json[T: BaseModel](
     attempt = 0
     while attempt < 5:
         current = models[0] if errors_on_primary < 2 else models[1]
-        await _limiter.wait(s.GEMINI_RPM)
+        await _limiter.wait(s.GEMINI_RPM, priority=priority)
         try:
             db.STATS["llm_calls"] += 1
             resp = await _get_client().aio.models.generate_content(

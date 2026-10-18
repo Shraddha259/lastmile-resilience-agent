@@ -19,5 +19,6 @@
 - 2026-10-16 — Test setup fails with emulator `409 Conflict` on the wipe — a previous test's job still holds a transaction; `fresh_db` now waits for jobs and retries.
 - 2026-10-17 — Cloud Run logs `429 Too Many Requests` on a Gemini model — that model's quota is used up; switch `GEMINI_AGENT_MODEL` to one that answers 200 (D-044).
 - 2026-10-17 — Many `decision failed` with `TimeoutError` — decisions wait behind classifier calls in the `GEMINI_RPM` queue; keep `AGENT_TIMEOUT_S` ≥ 60 and `GEMINI_RPM` near the real per-minute limit.
+- 2026-10-18 — Live call status changes minutes after hang-up — same queue; live-call requests now jump it and cancelled waits free their slot (D-047). Simulated decisions can still time out at the start of a run.
 - 2026-10-17 — `job failed … 404 No document to update …/checkins/…` after a Reset — a leftover job from the deleted incident finished late; harmless. Press STOP ALL CALLS, wait ~1 min, then Reset.
 - 2026-10-17 — Settings changed only in the Cloud Run console disappear after the next `deploy.sh backend` (`--set-env-vars` replaces all) — set them in `deploy.sh` / GitHub repo variables.

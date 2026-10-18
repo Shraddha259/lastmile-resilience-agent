@@ -39,12 +39,15 @@ async def classify(
     transcript: list[dict[str, Any]],
     live_status: CaseStatus | None,
     cached: dict[str, Any] | None = None,
+    *,
+    priority: bool = False,
 ) -> tuple[Classification, str]:
     """Run the classifier, retrying once.
 
     `cached` is the pre-computed classification for a simulated dialogue: it is the scripted
     output in fake mode, and the graceful fallback if the model is unavailable in real mode
     (labelled model="cached", D-025). Live calls pass None and use the §14.3 fallback.
+    `priority` lets a live call's result skip the Gemini queue (D-047).
     """
     prompt = load_prompt("classifier_user.md").format(
         transcript=render_transcript(transcript), live_status=live_status or "none"
@@ -57,6 +60,7 @@ async def classify(
                 prompt=prompt,
                 schema=Classification,
                 fake=fake,
+                priority=priority,
             )
         except UpstreamModelError as exc:
             log.warning("classifier failed", extra={"error_code": exc.code})

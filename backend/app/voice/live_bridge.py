@@ -209,6 +209,7 @@ async def run_text_call(call: _Call, system: str, resident: dict[str, Any]) -> s
             prompt=_chat_prompt(call.state),
             schema=TextTurn,
             fake=fake_text_turn(call.state, resident, user_text),
+            priority=True,  # the resident is waiting for the reply
         )
         await call.line("agent", turn.say)
         if turn.record_status:
@@ -420,5 +421,6 @@ async def run_call(
         answered=state.resident_spoke,
         end_reason=end,
         force_review=state.needs_human,
+        priority=True,  # a live resident just hung up: don't queue behind simulated calls
     )
     return end
